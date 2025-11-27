@@ -1,0 +1,75 @@
+:root {
+  --bg: #030507;
+  --bg-soft: #0b1318;
+  --card: rgba(8, 15, 18, 0.92);
+  --accent: #3b82f6;
+  --accent-soft: #60a5fa;
+  --text: #f5f7ff;
+  --grid-color: rgba(255, 255, 255, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('/images/bg.webp') center/cover no-repeat;
+  z-index: -2;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(180deg, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(10, 20, 40, 0.72), rgba(15, 30, 50, 0.65));
+  background-size:
+    55px 55px,
+    55px 55px,
+    auto;
+  opacity: 1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+
+
