@@ -271,10 +271,47 @@ const router = createRouter({
       path: '/fish-it-guides/:slug',
       redirect: (to) => `/guides/${to.params.slug}`
     },
+    // 错误路径重定向 - 缺少斜杠
+    {
+      path: '/fish-it-guidesultimate-progression-locations',
+      redirect: '/fish-it-guides/ultimate-progression-locations'
+    },
     // 旧路径重定向 - Wiki
     {
       path: '/fish-it-wiki',
       redirect: '/wiki'
+    },
+    {
+      path: '/fish-it-wiki/boats',
+      redirect: '/wiki/fish-it-boats'
+    },
+    {
+      path: '/fish-it-wiki/bobbers',
+      redirect: '/wiki/fish-it-bobbers'
+    },
+    {
+      path: '/fish-it-wiki/fish',
+      redirect: '/wiki/fish-it-fish'
+    },
+    {
+      path: '/fish-it-wiki/rods',
+      redirect: '/wiki/fish-it-rods'
+    },
+    {
+      path: '/fish-it-wiki/boats/:slug',
+      redirect: (to) => `/wiki/fish-it-boats/${to.params.slug}`
+    },
+    {
+      path: '/fish-it-wiki/bobbers/:slug',
+      redirect: (to) => `/wiki/fish-it-bobbers/${to.params.slug}`
+    },
+    {
+      path: '/fish-it-wiki/fish/:slug',
+      redirect: (to) => `/wiki/fish-it-fish/${to.params.slug}`
+    },
+    {
+      path: '/fish-it-wiki/rods/:slug',
+      redirect: (to) => `/wiki/fish-it-rods/${to.params.slug}`
     },
     {
       path: '/wiki/boats',

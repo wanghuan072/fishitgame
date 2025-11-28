@@ -104,6 +104,7 @@
               <span class="input-hint">How many casts you typically complete in one hour</span>
             </div>
 
+            <button class="calculate-button" @click="calculateResults">Calculate Catch Odds</button>
           </div>
         </div>
 
@@ -111,7 +112,7 @@
         <div class="results-section">
           <div class="results-card">
             <h2>Catch Probability Analysis</h2>
-            <div v-if="baseDropRate > 0 && castingRate > 0" class="value-results">
+            <div v-if="showResults && baseDropRate > 0 && castingRate > 0" class="value-results">
               <div class="success-banner">
                 <p>Analysis complete! Check out the results below.</p>
               </div>
@@ -163,37 +164,77 @@
 
             <div v-else class="empty-state">
               <div class="empty-icon">📊</div>
-              <p>Enter your fish selection and settings to see catch probability analysis.</p>
+              <p v-if="!showResults">Enter your fish selection and settings, then click "Calculate Catch Odds" to see the analysis.</p>
+              <p v-else>Please enter valid fish selection and casting rate to calculate catch probability.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="info-section">
-        <h2>How It Works</h2>
-        <div class="info-grid">
-          <div class="info-card">
-            <h3>Luck Calculation</h3>
-            <p>Total Luck = Rod Luck + Bobber Luck + Utility Luck + Island Buff</p>
-            <p>For regular fish: Every 10 Luck increases drop rate by ~0.15%.</p>
-            <p>For Secret fish: Each Luck point has a more significant impact (multiplier effect).</p>
+      <!-- Why Use This Calculator Section -->
+      <div class="intro-section">
+        <div class="intro-content">
+          <h2>Why Use the RNG Calculator?</h2>
+          <div class="intro-grid">
+            <div class="intro-card">
+              <div class="intro-icon">🎯</div>
+              <h3>Plan Your Fishing Strategy</h3>
+              <p>Know exactly how many attempts and hours you'll need to catch rare Secret fish. Plan your fishing sessions efficiently and set realistic goals.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">⚡</div>
+              <h3>Optimize Your Setup</h3>
+              <p>Compare different Rod, Bobber, and Utility combinations to find the most efficient setup for your target fish. Maximize your luck multiplier. Not sure what your total luck is? Use our <router-link to="/calculator/fish-it-luck-calculator" class="inline-link">Luck Calculator</router-link> to find out first.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">📊</div>
+              <h3>Statistical Accuracy</h3>
+              <p>Get precise probability estimates with confidence intervals (50%, 90%, 99%). Understand your actual chances based on statistical models.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">⏱️</div>
+              <h3>Time Management</h3>
+              <p>Calculate the real-world time investment needed. See how many days and hours you'll spend fishing for ultra-rare catches like Megalodon or Worm Fish.</p>
+            </div>
           </div>
-          <div class="info-card">
-            <h3>Drop Rate Formula</h3>
-            <p><strong>Regular Fish:</strong> Final Rate = Base Rate × (1 + (Luck / 10) × 0.0015)</p>
-            <p><strong>Secret Fish:</strong> Final Rate = Base Rate × (1 + Luck × 0.001)</p>
-            <p>Expected Attempts = 1 / Final Drop Rate</p>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Common Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>How does this RNG calculator work?</h3>
+            <p>This Fish It Catch RNG Calculator takes your equipment stats and target fish odds, then calculates how many attempts you'll likely need. It factors in your total luck (from rod, bobber, utility, and island buffs) to give you realistic time estimates. Perfect for planning those long grinds for Secret fish!</p>
           </div>
-          <div class="info-card">
-            <h3>Manual Input Mode</h3>
-            <p>Use manual input for Secret fish with very low catch rates (e.g., Worm Fish: 1/3M).</p>
-            <p>Enter rates as fractions (1/3000000) or decimals (0.00000033). Supports K/M/B suffixes (1/3M = 1/3000000).</p>
+          <div class="faq-item">
+            <h3>Are the results accurate?</h3>
+            <p>The calculator uses statistical models based on how Fish It! actually works. You'll see three confidence levels - 50%, 90%, and 99% - which tell you the odds at different probability points. Keep in mind RNG is still random, but these numbers give you a solid estimate based on math, not guesswork.</p>
           </div>
-          <div class="info-card">
-            <h3>Notes</h3>
-            <p>• Some Secret fish (like Megalodon) can only be caught during Admin Abuse events.</p>
-            <p>• Currently unobtainable Secret fish are not listed in the fish selector.</p>
-            <p>• Recommended: 120+ Luck for efficient Legendary fishing.</p>
+          <div class="faq-item">
+            <h3>What's the luck multiplier?</h3>
+            <p>Your luck multiplier is the total percentage bonus from all your gear combined. Add up your Rod Luck, Bobber Luck, Utility Luck, and any Island Buff you have. Enter that total percentage here. For example, if you have 1000% total luck, that's a 10x multiplier - pretty powerful for catching those rare Secret fish!</p>
+          </div>
+          <div class="faq-item">
+            <h3>Which fish can I calculate?</h3>
+            <p>The Fish It Catch RNG Calculator covers 28 Secret fish from different locations like Ocean, Ancient Jungle, and Lost Isle. You can pick from the dropdown or manually enter odds for fish not in the list. It's designed for those ultra-rare catches with odds like 1/3M or 1/4M. Want to explore all Secret fish first? Check out our <router-link to="/calculator/fish-it-secret-calculator" class="inline-link">Secret Fish Calculator</router-link> to browse the complete database.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What do the confidence intervals mean?</h3>
+            <p>Think of them as your "chance of success" levels. 50% confidence means you have a coin-flip chance of catching it by that time. 90% means you're very likely to have caught it. 99% is almost guaranteed. Most players aim for the 90% mark to feel confident they'll get their target fish.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Should I upgrade my gear first?</h3>
+            <p>That's exactly what this calculator helps you decide! Try different luck values to see how much time you'd save with better gear. Sometimes upgrading your rod or bobber can cut hours or even days off your grind. The Fish It Catch RNG Calculator makes it easy to compare setups before spending coins.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I use this for event fish?</h3>
+            <p>Yes! Some Secret fish like Megalodon only appear during Admin Abuse events. Use the manual input mode to enter their odds, then calculate if you can realistically catch them during the event window. This helps you decide if it's worth grinding or if you should wait for better gear first.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Why are my results different from others?</h3>
+            <p>Everyone's setup is different! Your luck multiplier, casting speed, and target fish all affect the results. The Fish It Catch RNG Calculator personalizes estimates based on your specific stats. Two players going for the same fish might get very different time estimates depending on their gear.</p>
           </div>
         </div>
       </div>
@@ -202,7 +243,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 
 // Secret fish list with catch rates
 const secretFishList = [
@@ -256,6 +297,7 @@ const inputMode = ref('fish')
 const manualCatchRate = ref('')
 const luckMultiplier = ref(0)
 const castingRate = ref(600)
+const showResults = ref(false)
 const isSelectOpen = ref(false)
 
 // Group secret fish by location
@@ -367,7 +409,26 @@ const toggleSelect = () => {
 const selectFish = (fish) => {
   selectedFish.value = fish
   isSelectOpen.value = false
+  showResults.value = false
 }
+
+const calculateResults = () => {
+  if (baseDropRate.value > 0 && castingRate.value > 0) {
+    showResults.value = true
+    // Scroll to results if needed
+    const resultsCard = document.querySelector('.results-card')
+    if (resultsCard) {
+      resultsCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    }
+  }
+}
+
+// Reset results when inputs change
+watch([selectedFish, manualCatchRate, luckMultiplier, castingRate, inputMode], () => {
+  if (showResults.value) {
+    showResults.value = false
+  }
+})
 
 // Close select when clicking outside
 let clickOutsideHandler = null
@@ -466,17 +527,17 @@ const formatCasts = (casts) => {
 
 .input-card,
 .results-card {
-  border-radius: 22px;
+  border-radius: 20px;
   border: 1px solid rgba(59, 130, 246, 0.25);
   background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
-  padding: 32px;
+  padding: 20px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .input-card h2,
 .results-card h2 {
-  font-size: 28px;
-  margin: 0 0 24px;
+  font-size: 24px;
+  margin-bottom: 15px;
   color: #fff;
   background: linear-gradient(135deg, #e3f2ff, #93c5fd);
   -webkit-background-clip: text;
@@ -529,8 +590,7 @@ const formatCasts = (casts) => {
 
 .calculate-button {
   width: 100%;
-  padding: 16px;
-  margin-top: 24px;
+  padding: 15px;
   background: rgba(59, 130, 246, 0.9);
   color: #fff;
   border: none;
@@ -551,8 +611,8 @@ const formatCasts = (casts) => {
   background: rgba(34, 197, 94, 0.2);
   border: 1px solid rgba(34, 197, 94, 0.4);
   border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 24px;
+  padding: 10px;
+  margin-bottom: 15px;
   text-align: center;
 }
 
@@ -565,12 +625,12 @@ const formatCasts = (casts) => {
 .analysis-description {
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-  margin-bottom: 24px;
+  margin-bottom: 15px;
 }
 
 .enhanced-odds {
-  margin-bottom: 32px;
-  padding: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
   background: rgba(59, 130, 246, 0.1);
   border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 16px;
@@ -579,7 +639,7 @@ const formatCasts = (casts) => {
 .enhanced-odds h3 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 12px;
+  margin-bottom: 5px;
 }
 
 .odds-display {
@@ -589,7 +649,7 @@ const formatCasts = (casts) => {
 }
 
 .odds-value {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
   color: #60a5fa;
 }
@@ -603,11 +663,11 @@ const formatCasts = (casts) => {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .confidence-item {
-  padding: 20px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
@@ -626,7 +686,7 @@ const formatCasts = (casts) => {
 }
 
 .confidence-value div {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   color: #fff;
 }
@@ -635,8 +695,7 @@ const formatCasts = (casts) => {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
-  margin-top: 24px;
-  padding-top: 24px;
+  padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -657,12 +716,12 @@ const formatCasts = (casts) => {
 
 .empty-state {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 .empty-icon {
   font-size: 64px;
-  margin-bottom: 16px;
+  margin-bottom: 80px;
 }
 
 .empty-state p {
@@ -831,11 +890,16 @@ const formatCasts = (casts) => {
   margin-top: 4px;
 }
 
-.info-section {
-  margin-top: 60px;
+.intro-section {
+  margin-bottom: 60px;
 }
 
-.info-section h2 {
+.intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-content h2 {
   font-size: 36px;
   margin-bottom: 32px;
   color: #fff;
@@ -846,30 +910,116 @@ const formatCasts = (casts) => {
   -webkit-text-fill-color: transparent;
 }
 
-.info-grid {
+.intro-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
-.info-card {
-  padding: 24px;
+.intro-card {
+  padding: 28px;
   border-radius: 18px;
   border: 1px solid rgba(59, 130, 246, 0.25);
-  background: linear-gradient(160deg, rgba(20, 30, 50, 0.6), rgba(10, 15, 25, 0.5));
+  background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
+  transition: all 0.3s ease;
 }
 
-.info-card h3 {
+.intro-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+
+.intro-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.intro-card h3 {
   font-size: 20px;
   color: #fff;
-  margin-bottom: 12px;
+  margin: 0 0 12px;
+  font-weight: 600;
 }
 
-.info-card p {
+.intro-card p {
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
-  margin-bottom: 8px;
+  margin: 0;
   font-size: 14px;
+}
+
+.faq-section {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.faq-item p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 15px;
+}
+
+.faq-item strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.inline-link {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.inline-link:hover {
+  color: #93c5fd;
+  border-bottom-color: #93c5fd;
 }
 
 @media (max-width: 1024px) {
@@ -878,6 +1028,14 @@ const formatCasts = (casts) => {
   }
 
   .confidence-section {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .faq-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -897,6 +1055,29 @@ const formatCasts = (casts) => {
 
   .confidence-section {
     grid-template-columns: 1fr;
+  }
+
+  .intro-section {
+    margin-bottom: 40px;
+  }
+
+  .intro-content h2,
+  .faq-section h2 {
+    font-size: 28px;
+  }
+
+  .intro-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-card,
+  .faq-item {
+    padding: 20px;
+  }
+
+  .intro-icon {
+    font-size: 40px;
   }
 }
 </style>

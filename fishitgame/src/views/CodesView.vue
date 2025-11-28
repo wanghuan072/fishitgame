@@ -14,7 +14,7 @@
           <p>
             There are 2 main types of potions that you can get via codes. <strong>Luck potions</strong>, and
             <strong>Mutation potions</strong>. The former boost your luck for a set amount of time, while the mutation potion
-            boosts the chances of your fish being mutated.
+            boosts the chances of your fish being mutated. These codes are updated regularly, so check back often for new rewards. Want to see how luck potions affect your catch rates? Use our <router-link to="/calculator/fish-it-luck-calculator" class="inline-link">Luck Calculator</router-link> to see the impact, or check the <router-link to="/calculator/fish-it-rng-calculator" class="inline-link">RNG Calculator</router-link> to plan your fishing strategy with boosted luck.
           </p>
         </div>
 
@@ -48,7 +48,7 @@
 
         <div class="redeem-section">
           <h2>How to Redeem Codes</h2>
-          <p>You can redeem the codes from anywhere on the map, simply follow these easy steps below:</p>
+          <p>You can redeem the codes from anywhere on the map, simply follow these easy steps below. Make sure to redeem codes as soon as possible since they can expire. For more Fish It! tips and strategies, visit our <router-link to="/guides" class="inline-link">guides section</router-link> or explore the <router-link to="/wiki" class="inline-link">wiki</router-link> for detailed game information.</p>
           <ol class="redeem-steps">
             <li>Press the <strong>SHOP</strong> button at the top of the screen.</li>
             <li>Enter the code in the <strong>ENTER CODE!</strong> text box.</li>
@@ -68,7 +68,7 @@
 
         <div class="expired-section">
           <h2>Expired Fish It! Codes</h2>
-          <p>These codes can no longer be redeemed, but they're listed here so you can still try if you like!</p>
+          <p>These codes can no longer be redeemed, but they're listed here so you can still try if you like! Codes expire regularly, so make sure to redeem active codes quickly. For the latest updates and new codes, check our <router-link to="/" class="inline-link">homepage</router-link> regularly.</p>
           <div class="expired-codes-list">
             <span v-for="code in expiredCodes" :key="code" class="expired-code">{{ code }}</span>
           </div>
@@ -342,17 +342,30 @@ const expiredCodes = ref([
   gap: 12px;
 }
 
-.expired-code {
-  padding: 10px 16px;
-  border-radius: 8px;
-  background: rgba(100, 100, 100, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.5);
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: line-through;
-}
+  .expired-code {
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: rgba(100, 100, 100, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: line-through;
+  }
+
+  .inline-link {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .inline-link:hover {
+    color: #93c5fd;
+    border-bottom-color: #93c5fd;
+  }
 
 @media (max-width: 768px) {
   .page-header h1 {

@@ -113,6 +113,74 @@
           </div>
         </div>
       </div>
+
+      <!-- Why Use This Calculator Section -->
+      <div class="intro-section">
+        <div class="intro-content">
+          <h2>Why Use the Secret Fish Calculator?</h2>
+          <div class="intro-grid">
+            <div class="intro-card">
+              <div class="intro-icon">🔮</div>
+              <h3>Complete Secret Fish Database</h3>
+              <p>The Fish It Secret Fish Calculator provides a comprehensive database of all Secret fish in the game. Browse by location, search by name, and find detailed information about each ultra-rare catch.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">📍</div>
+              <h3>Filter by Location</h3>
+              <p>Quickly find Secret fish by their fishing location. Filter by Ocean, Ancient Jungle, Lost Isle, and more to see which rare catches are available in each area.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">🎯</div>
+              <h3>Plan Your Grind</h3>
+              <p>Use the calculator to identify which Secret fish you want to catch, then jump directly to the <router-link to="/calculator/fish-it-rng-calculator" class="inline-link">RNG Calculator</router-link> to see how long it will take with your current setup. Each fish card has a button that takes you straight there!</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">📊</div>
+              <h3>Track Your Progress</h3>
+              <p>Search and filter through all Secret fish to track which ones you've caught and which ones you still need. The Fish It Secret Fish Calculator helps you stay organized.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Common Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>What are Secret fish?</h3>
+            <p>Secret fish are the rarest fish in Fish It! with extremely low catch rates, often 1 in hundreds of thousands or millions. They're the ultimate challenge for dedicated players. The Fish It Secret Fish Calculator lists all of them with their locations and rarity information.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How do I use the search and filter features?</h3>
+            <p>Type in the search box to find fish by name or location. Click location chips to filter by specific areas. You can combine search and location filters to narrow down results. The calculator shows how many Secret fish match your criteria.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I calculate catch odds from here?</h3>
+            <p>Yes! Each Secret fish card has a "Calculate Catch Odds" button that takes you directly to the <router-link to="/calculator/fish-it-rng-calculator" class="inline-link">RNG Calculator</router-link>. This lets you see exactly how many attempts and hours you'll need to catch that specific fish with your current gear. Make sure to check your total luck first using our <router-link to="/calculator/fish-it-luck-calculator" class="inline-link">Luck Calculator</router-link> for the most accurate results.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Which locations have the most Secret fish?</h3>
+            <p>Different locations have different numbers of Secret fish. The Fish It Secret Fish Calculator groups them by location so you can easily see which areas are best for hunting rare catches. Some locations like Lost Isle have multiple Secret fish.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Are all Secret fish available all the time?</h3>
+            <p>Most Secret fish are always available, but some like Megalodon only appear during special Admin Abuse events. The calculator shows all Secret fish regardless of availability - check in-game for current event status.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What's the rarest Secret fish?</h3>
+            <p>Secret fish have varying rarity rates, with some having odds like 1/3M or 1/4M. The calculator shows each fish's rarity information so you can see which ones are the hardest to catch. Use the RNG Calculator to see realistic time estimates for each.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How do I know if I should grind for a Secret fish?</h3>
+            <p>Use the Fish It Secret Fish Calculator to find fish you're interested in, then click "Calculate Catch Odds" to see time estimates. If the grind seems too long, you might want to upgrade your gear first or focus on easier Secret fish.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I bookmark specific Secret fish?</h3>
+            <p>While the calculator doesn't have a built-in bookmark feature, you can use the search and filter to quickly find fish you're tracking. The location grouping also makes it easy to revisit fish in specific areas you're farming.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -262,10 +330,10 @@ const openRngCalculator = () => {
 
 .filter-card,
 .results-card {
-  border-radius: 22px;
+  border-radius: 20px;
   border: 1px solid rgba(59, 130, 246, 0.25);
   background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
-  padding: 32px;
+  padding: 20px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
   height: fit-content;
   position: sticky;
@@ -274,8 +342,8 @@ const openRngCalculator = () => {
 
 .filter-card h2,
 .results-card h2 {
-  font-size: 28px;
-  margin: 0 0 24px;
+  font-size: 24px;
+  margin-bottom: 15px;
   color: #fff;
   background: linear-gradient(135deg, #e3f2ff, #93c5fd);
   -webkit-background-clip: text;
@@ -284,7 +352,7 @@ const openRngCalculator = () => {
 }
 
 .form-group {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
@@ -513,12 +581,12 @@ const openRngCalculator = () => {
 
 .empty-state {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 .empty-icon {
   font-size: 64px;
-  margin-bottom: 16px;
+  margin-bottom: 80px;
 }
 
 .empty-state p {
@@ -570,6 +638,164 @@ const openRngCalculator = () => {
   .filter-chip {
     width: 100%;
     text-align: center;
+  }
+}
+
+.intro-section {
+  margin-bottom: 60px;
+}
+
+.intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-content h2 {
+  font-size: 36px;
+  margin-bottom: 32px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.intro-card {
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
+  transition: all 0.3s ease;
+}
+
+.intro-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+
+.intro-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.intro-card h3 {
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.intro-card p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 14px;
+}
+
+.intro-card strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.faq-section {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.faq-item p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 15px;
+}
+
+.faq-item strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.inline-link {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.inline-link:hover {
+  color: #93c5fd;
+  border-bottom-color: #93c5fd;
+}
+
+@media (max-width: 1024px) {
+  .intro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-content h2,
+  .faq-section h2 {
+    font-size: 28px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

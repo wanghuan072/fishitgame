@@ -150,10 +150,10 @@
 
               <div class="value-info">
                 <p>
-                  <strong>How to use:</strong> Select fish species from your inventory, enter the base value, and select the mutation type. The calculator will compute the total value by multiplying base value with the mutation multiplier.
+                  How to use: Select fish species from your inventory, enter the base value, and select the mutation type. The calculator will compute the total value by multiplying base value with the mutation multiplier.
                 </p>
                 <p>
-                  <strong>Tip:</strong> Different mutations have different multipliers. Higher multipliers like Galaxy (×6.5) and Gemstone (×5.2) significantly increase fish value.
+                  Tip: Different mutations have different multipliers. Higher multipliers like Galaxy (×6.5) and Gemstone (×5.2) significantly increase fish value.
                 </p>
               </div>
             </div>
@@ -162,6 +162,74 @@
               <div class="empty-icon">💰</div>
               <p>Add fish to your inventory with base value and mutation, then click "Calculate Total Value" to see your total earnings.</p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Use This Calculator Section -->
+      <div class="intro-section">
+        <div class="intro-content">
+          <h2>Why Use the Value Calculator?</h2>
+          <div class="intro-grid">
+            <div class="intro-card">
+              <div class="intro-icon">💰</div>
+              <h3>Calculate Total Earnings</h3>
+              <p>Know exactly how much your fish inventory is worth. The Fish It Value Calculator multiplies base values by mutation multipliers to give you accurate total values, helping you plan your selling strategy.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">📊</div>
+              <h3>Compare Mutation Values</h3>
+              <p>See how different mutations affect fish value. Galaxy (×6.5) and Gemstone (×5.2) mutations dramatically increase worth, while Big (×1.1) provides a smaller boost. Plan which mutations to prioritize.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">⚡</div>
+              <h3>Track Multiple Fish</h3>
+              <p>Add as many fish species as you need to calculate your complete inventory value. The calculator handles multiple fish with different base values and mutations, giving you a comprehensive total.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">🎯</div>
+              <h3>Optimize Your Strategy</h3>
+              <p>Use the Fish It Value Calculator to decide when to sell. Compare different mutation combinations to maximize profits and understand which fish are worth keeping versus selling immediately. Planning to catch more valuable fish? The <router-link to="/calculator/fish-it-rng-calculator" class="inline-link">RNG Calculator</router-link> can help you estimate how long it'll take to catch rare catches with high mutation values.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Common Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>How does the value calculator work?</h3>
+            <p>The Fish It Value Calculator multiplies each fish's base value by its mutation multiplier. For example, a fish with 1000 Coins base value and a Galaxy mutation (×6.5) is worth 6,500 Coins. Add multiple fish to get your total inventory value.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What's the difference between base value and total value?</h3>
+            <p>Base value is the fish's worth without any mutations. Total value is base value multiplied by the mutation multiplier. The calculator shows both so you can see how much each mutation increases your fish's worth.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Which mutations are most valuable?</h3>
+            <p>Galaxy (×6.5) and Gemstone (×5.2) are the highest multipliers, followed by Midnight and Corrupt (both ×4.5). Radioactive (×4.3) and shiny*Frozen (×4.5) are also very valuable. The Fish It Value Calculator shows all multipliers so you can compare easily.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I calculate multiple fish at once?</h3>
+            <p>Yes! Click "Add Fish" to add more fish to your inventory. Each fish can have its own species, base value, and mutation. The calculator totals everything together to show your complete inventory value.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Do I need to know the exact base value?</h3>
+            <p>Yes, you'll need to enter the base value for each fish. This is the fish's value without mutations. You can find base values in-game or from the wiki. The calculator then applies the mutation multiplier automatically.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What if my fish has no mutation?</h3>
+            <p>If a fish has no mutation, its value equals its base value (multiplier of 1x). You can still add it to the calculator - just leave the mutation unselected or the calculator will use a 1x multiplier by default.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I use this to plan my selling strategy?</h3>
+            <p>Absolutely! The Fish It Value Calculator helps you see which fish are worth the most. Compare different combinations to decide whether to sell now or wait for better mutations. It's perfect for maximizing your coin earnings. For more Fish It! tips and strategies, check out our <router-link to="/guides" class="inline-link">guides section</router-link>.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How accurate are the mutation multipliers?</h3>
+            <p>The multipliers in the calculator are based on actual game mechanics. They match the in-game values, so your calculated totals should be accurate. Always double-check in-game if you're unsure about a specific fish's base value.</p>
           </div>
         </div>
       </div>
@@ -380,17 +448,17 @@ onMounted(() => {
 
 .input-card,
 .results-card {
-  border-radius: 22px;
+  border-radius: 20px;
   border: 1px solid rgba(59, 130, 246, 0.25);
   background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
-  padding: 32px;
+  padding: 20px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .input-card h2,
 .results-card h2 {
-  font-size: 28px;
-  margin: 0 0 24px;
+  font-size: 24px;
+  margin-bottom: 15px;
   color: #fff;
   background: linear-gradient(135deg, #e3f2ff, #93c5fd);
   -webkit-background-clip: text;
@@ -669,7 +737,7 @@ onMounted(() => {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .add-button:hover {
@@ -680,7 +748,7 @@ onMounted(() => {
 
 .calculate-button {
   width: 100%;
-  padding: 16px;
+  padding: 15px;
   background: rgba(59, 130, 246, 0.9);
   color: #fff;
   border: none;
@@ -714,11 +782,11 @@ onMounted(() => {
 
 .total-value-display {
   text-align: center;
-  padding: 32px;
+  padding: 20px;
   background: rgba(251, 191, 36, 0.1);
   border: 2px solid rgba(251, 191, 36, 0.3);
   border-radius: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .value-label {
@@ -730,7 +798,7 @@ onMounted(() => {
 }
 
 .value-amount {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 700;
   color: #fbbf24;
   margin-bottom: 8px;
@@ -742,8 +810,8 @@ onMounted(() => {
 }
 
 .value-breakdown {
-  margin-bottom: 24px;
-  padding: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
   background: rgba(15, 25, 40, 0.5);
   border-radius: 12px;
 }
@@ -751,7 +819,7 @@ onMounted(() => {
 .value-breakdown h3 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 16px;
+  margin: 0 0 12px;
 }
 
 .breakdown-item {
@@ -823,7 +891,7 @@ onMounted(() => {
 }
 
 .value-info {
-  padding: 20px;
+  padding: 15px;
   background: rgba(59, 130, 246, 0.05);
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 12px;
@@ -831,8 +899,8 @@ onMounted(() => {
 
 .value-info p {
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
-  margin: 0 0 12px;
+  line-height: 1.6;
+  margin: 0 0 10px;
   font-size: 14px;
 }
 
@@ -846,17 +914,168 @@ onMounted(() => {
 
 .empty-state {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
 .empty-icon {
   font-size: 64px;
-  margin-bottom: 16px;
+  margin-bottom: 80px;
 }
 
 .empty-state p {
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.6;
+}
+
+.intro-section {
+  margin-bottom: 60px;
+}
+
+.intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-content h2 {
+  font-size: 36px;
+  margin-bottom: 32px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.intro-card {
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
+  transition: all 0.3s ease;
+}
+
+.intro-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+
+.intro-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.intro-card h3 {
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.intro-card p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 14px;
+}
+
+.intro-card strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.faq-section {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.faq-item p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 15px;
+}
+
+.faq-item strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.inline-link {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.inline-link:hover {
+  color: #93c5fd;
+  border-bottom-color: #93c5fd;
+}
+
+@media (max-width: 1024px) {
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 968px) {
@@ -870,6 +1089,15 @@ onMounted(() => {
 
   .value-amount {
     font-size: 36px;
+  }
+
+  .intro-content h2,
+  .faq-section h2 {
+    font-size: 28px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

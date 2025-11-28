@@ -174,11 +174,11 @@
 
               <div class="luck-info">
                 <p>
-                  <strong>How it works:</strong> Your total luck percentage directly increases your catch rates. For
+                  How it works: Your total luck percentage directly increases your catch rates. For
                   example, 1000% luck means a 10x multiplier on base catch rates.
                 </p>
                 <p>
-                  <strong>Tip:</strong> Higher luck significantly improves your chances of catching rare and secret fish.
+                  Tip: Higher luck significantly improves your chances of catching rare and secret fish.
                   Combine the best rod and bobber with luck potions for maximum effectiveness.
                 </p>
               </div>
@@ -188,6 +188,74 @@
               <div class="empty-icon">🍀</div>
               <p>Select your equipment and click "Calculate Total Luck" to see your luck stats.</p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Use This Calculator Section -->
+      <div class="intro-section">
+        <div class="intro-content">
+          <h2>Why Use the Luck Calculator?</h2>
+          <div class="intro-grid">
+            <div class="intro-card">
+              <div class="intro-icon">🎯</div>
+              <h3>Maximize Your Catch Rates</h3>
+              <p>Understanding your total luck percentage is crucial for catching rare fish. The Fish It Luck Calculator shows you exactly how much luck you have from all sources, helping you optimize your gear setup for better results.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">⚡</div>
+              <h3>Compare Equipment Options</h3>
+              <p>Test different rod and bobber combinations to see which gives you the highest luck multiplier. The calculator breaks down each source so you can make informed decisions before spending coins on upgrades. Once you know your total luck, use the <router-link to="/calculator/fish-it-rng-calculator" class="inline-link">RNG Calculator</router-link> to see how it affects your catch odds for Secret fish.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">📊</div>
+              <h3>Track All Luck Sources</h3>
+              <p>Your luck comes from multiple sources: rods, bobbers, potions, weather, and events. The Fish It Luck Calculator helps you account for everything, including temporary bonuses like Friend Luck and Weather Luck.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-icon">⏱️</div>
+              <h3>Plan Your Strategy</h3>
+              <p>See how much your luck multiplier affects your catch rates. Higher luck means better odds for Secret fish, so knowing your total helps you decide if it's worth grinding now or waiting for better gear.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Common Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>How does the luck calculator work?</h3>
+            <p>The Fish It Luck Calculator adds up all your luck sources - your rod's luck stat, bobber luck, and any additional bonuses from potions, weather, or events. It then shows your total luck percentage and converts it to a multiplier. For example, 1000% luck equals a 10x multiplier on base catch rates. Need help finding the best fishing spots? Visit our <router-link to="/" class="inline-link">homepage</router-link> for guides and wiki resources.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What counts as additional luck?</h3>
+            <p>Additional luck includes Friend Luck (from playing with friends), Weather Luck (from weather effects), Potion Luck (from luck potions), and Event Luck (from special events). These are temporary bonuses that stack with your permanent gear luck. The calculator lets you add multiple sources to get your complete luck total.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How do I find my rod and bobber luck?</h3>
+            <p>Your rod's luck stat is shown in the rod's stats. For bobbers, look for the "Luck:" stat in the bobber's description. The Fish It Luck Calculator includes all rods and bobbers in the game, so you can select them from the dropdown menus to automatically get their luck values.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Does higher luck really make a difference?</h3>
+            <p>Absolutely! Luck is one of the most important stats for catching rare and Secret fish. A 10x multiplier (1000% luck) means you're 10 times more likely to catch rare fish compared to base rates. The difference between 500% and 1000% luck can mean hours or even days saved when grinding for ultra-rare catches.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Should I prioritize luck over other stats?</h3>
+            <p>It depends on your goals. For catching Secret fish with very low base rates, luck is crucial. However, speed and weight stats also matter for efficiency. The Fish It Luck Calculator helps you see your luck total so you can balance it with other important stats when choosing gear.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I use this to compare different setups?</h3>
+            <p>Yes! That's one of the best uses for this calculator. Try selecting different rod and bobber combinations to see which gives you the highest total luck. You can also add temporary luck sources to see how much potions or weather effects boost your overall multiplier.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What's the maximum luck I can get?</h3>
+            <p>There's no hard cap, but the best gear combinations typically give you 1000-2000% luck or more. With additional sources like potions and weather, you can push even higher. The Fish It Luck Calculator shows you exactly where you stand and how much room you have to improve.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How often should I recalculate my luck?</h3>
+            <p>Recalculate whenever you change your gear or when temporary bonuses change. If you're using luck potions, add them each time you use one. Weather and event luck change frequently, so update those values as needed. The calculator makes it quick to see your current total.</p>
           </div>
         </div>
       </div>
@@ -438,17 +506,17 @@ const calculateLuck = () => {
 
 .input-card,
 .results-card {
-  border-radius: 22px;
+  border-radius: 20px;
   border: 1px solid rgba(59, 130, 246, 0.25);
   background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
-  padding: 32px;
+  padding: 20px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .input-card h2,
 .results-card h2 {
-  font-size: 28px;
-  margin: 0 0 24px;
+  font-size: 24px;
+  margin-bottom: 15px;
   color: #fff;
   background: linear-gradient(135deg, #e3f2ff, #93c5fd);
   -webkit-background-clip: text;
@@ -457,7 +525,7 @@ const calculateLuck = () => {
 }
 
 .form-group {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
@@ -795,8 +863,7 @@ const calculateLuck = () => {
 
 .calculate-button {
   width: 100%;
-  padding: 16px;
-  margin-top: 24px;
+  padding: 15px;
   background: rgba(59, 130, 246, 0.9);
   color: #fff;
   border: none;
@@ -830,15 +897,15 @@ const calculateLuck = () => {
 
 .total-luck-display {
   text-align: center;
-  padding: 32px;
+  padding: 20px;
   background: rgba(59, 130, 246, 0.1);
   border: 2px solid rgba(59, 130, 246, 0.3);
   border-radius: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .luck-value {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 700;
   color: #60a5fa;
   margin-bottom: 8px;
@@ -850,8 +917,8 @@ const calculateLuck = () => {
 }
 
 .luck-breakdown {
-  margin-bottom: 24px;
-  padding: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
   background: rgba(15, 25, 40, 0.5);
   border-radius: 12px;
 }
@@ -859,7 +926,7 @@ const calculateLuck = () => {
 .luck-breakdown h3 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 16px;
+  margin: 0 0 12px;
 }
 
 .breakdown-item {
@@ -912,7 +979,7 @@ const calculateLuck = () => {
 }
 
 .luck-info {
-  padding: 20px;
+  padding: 15px;
   background: rgba(59, 130, 246, 0.05);
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 12px;
@@ -920,8 +987,8 @@ const calculateLuck = () => {
 
 .luck-info p {
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
-  margin: 0 0 12px;
+  line-height: 1.6;
+  margin: 0 0 10px;
   font-size: 14px;
 }
 
@@ -935,12 +1002,12 @@ const calculateLuck = () => {
 
 .empty-state {
   text-align: center;
-  padding: 60px 20px;
+  padding: 70px 20px;
 }
 
 .empty-icon {
   font-size: 64px;
-  margin-bottom: 16px;
+  margin-bottom: 75px;
 }
 
 .empty-state p {
@@ -948,17 +1015,173 @@ const calculateLuck = () => {
   line-height: 1.6;
 }
 
-@media (max-width: 968px) {
+.intro-section {
+  margin-bottom: 60px;
+}
+
+.intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-content h2 {
+  font-size: 36px;
+  margin-bottom: 32px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.intro-card {
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
+  transition: all 0.3s ease;
+}
+
+.intro-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+
+.intro-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.intro-card h3 {
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.intro-card p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0;
+  font-size: 14px;
+}
+
+.intro-card strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.faq-section {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.faq-item p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 15px;
+}
+
+.faq-item strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.inline-link {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.inline-link:hover {
+  color: #93c5fd;
+  border-bottom-color: #93c5fd;
+}
+
+@media (max-width: 1024px) {
   .calculator-grid {
     grid-template-columns: 1fr;
   }
 
+  .intro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 968px) {
   .page-hero h1 {
     font-size: 36px;
   }
 
   .luck-value {
     font-size: 36px;
+  }
+
+  .intro-content h2,
+  .faq-section h2 {
+    font-size: 28px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

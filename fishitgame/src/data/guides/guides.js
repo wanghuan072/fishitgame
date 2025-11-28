@@ -167,9 +167,9 @@ export const guides = [
 <h3 style="font-size: 1.17em; font-weight: bold;"><strong>💡 3 Pro Tips to Avoid Mistakes</strong></h3>
 
 <ol>
-    <li data-list="ordered"><span contenteditable="false"></span><strong>Value &gt; Rarity:</strong> Don't just obsess over "Mythical" rarity. A common fish with a <strong>"Galaxy" Mutation</strong> might be worth more than a plain Mythical fish. Use our <a href="/calculator/value" rel="noopener noreferrer" target="_blank">[Fish Value Calculator]</a> to check prices before you sell!</li>
+    <li data-list="ordered"><span contenteditable="false"></span><strong>Value &gt; Rarity:</strong> Don't just obsess over "Mythical" rarity. A common fish with a <strong>"Galaxy" Mutation</strong> might be worth more than a plain Mythical fish. Use our <a href="/calculator/fish-it-value-calculator" rel="noopener noreferrer" target="_blank">[Fish Value Calculator]</a> to check prices before you sell!</li>
 
-    <li data-list="ordered"><span contenteditable="false"></span><strong>Understand RNG:</strong> Sometimes you won't catch anything good for 30 minutes. That's normal. Use our <a href="/calculator/luck" rel="noopener noreferrer" target="_blank">[Luck Calculator]</a> to check if your loadout is optimized. Sometimes just changing your Bait makes a huge difference.</li>
+    <li data-list="ordered"><span contenteditable="false"></span><strong>Understand RNG:</strong> Sometimes you won't catch anything good for 30 minutes. That's normal. Use our <a href="/calculator/fish-it-luck-calculator" rel="noopener noreferrer" target="_blank">[Luck Calculator]</a> to check if your loadout is optimized. Sometimes just changing your Bait makes a huge difference.</li>
 
     <li data-list="ordered"><span contenteditable="false"></span><strong>Weather Matters:</strong> If you see a <strong>Meteor Shower</strong> or <strong>Storm</strong>, do not log off! These are the best times to catch the top-tier Secret Fish.</li>
 </ol>

@@ -21,8 +21,53 @@
       "permanent": true
     },
     {
+      "source": "/fish-it-guidesultimate-progression-locations",
+      "destination": "/fish-it-guides/ultimate-progression-locations",
+      "permanent": true
+    },
+    {
       "source": "/fish-it-wiki",
       "destination": "/wiki",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-wiki/boats",
+      "destination": "/wiki/fish-it-boats",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-wiki/bobbers",
+      "destination": "/wiki/fish-it-bobbers",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-wiki/fish",
+      "destination": "/wiki/fish-it-fish",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-wiki/rods",
+      "destination": "/wiki/fish-it-rods",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-wiki/boats/:slug*",
+      "destination": "/wiki/fish-it-boats/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-wiki/bobbers/:slug*",
+      "destination": "/wiki/fish-it-bobbers/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-wiki/fish/:slug*",
+      "destination": "/wiki/fish-it-fish/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-wiki/rods/:slug*",
+      "destination": "/wiki/fish-it-rods/:slug*",
       "permanent": true
     },
     {

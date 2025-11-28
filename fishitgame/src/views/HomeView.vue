@@ -9,9 +9,9 @@
               <p class="badge">Fish It! · Roblox Fishing Simulator</p>
               <h1 class="hero-title">Fish It! Community Guide Hub</h1>
               <p class="hero-subtitle">
-                Fish It!, built by the Fish Atelier team, is one of Roblox’s most-loved fishing simulators. Hunt rare fish, sail across
+                Fish It!, built by the Fish Atelier team, is one of Roblox's most-loved fishing simulators. Hunt rare fish, sail across
                 island chains, upgrade rods and bobbers, and help curate the official wiki. Stack Luck, Mutation, and Shiny chances
-                to become the legendary angler every island talks about.
+                to become the legendary angler every island talks about. Use our <router-link to="/calculator" class="inline-link">calculators</router-link> to optimize your strategy and explore the <router-link to="/wiki" class="inline-link">wiki</router-link> for detailed equipment stats.
               </p>
               <div class="hero-actions">
                 <router-link to="/calculator/fish-it-rng-calculator" class="btn-hero btn-xbox">
@@ -59,7 +59,7 @@
                     <h4>Gear Synergy</h4>
                     <p>
                       Fishing rods, bobbers, boats, and utility items all contribute Luck, Mutation, or Shiny bonuses. Stack the
-                      right stats and run the Catch RNG Calculator to plan how many casts you really need.
+                      right stats and run the <router-link to="/calculator/fish-it-rng-calculator" class="inline-link">Catch RNG Calculator</router-link> to plan how many casts you really need.
                     </p>
                   </div>
                   <div class="system-card">
@@ -131,8 +131,7 @@
             <div class="section-header">
               <h2 class="section-title">Fish It Game Guide</h2>
               <p class="section-subtitle">
-                Curated walkthroughs from the Roblox community: progression routes, Luck builds, and boat investments. Got more tips?
-                Drop them on the wiki.
+                Curated walkthroughs from the Roblox community: progression routes, Luck builds, and boat investments. These guides help you understand game mechanics, optimize your gear setup, and plan your fishing strategy. Got more tips? Drop them on the wiki.
               </p>
             </div>
             <div class="guides-grid">
@@ -426,13 +425,29 @@
               <p class="section-subtitle">Quick answers for the most common questions from new anglers.</p>
             </div>
             <div class="faq-grid">
-              <article
-                v-for="faq in faqList"
-                :key="faq.id"
-                class="faq-item"
-              >
-                <h3>{{ faq.question }}</h3>
-                <p>{{ faq.answer }}</p>
+              <article class="faq-item">
+                <h3>How do I start Fish It?</h3>
+                <p>Load into Fisherman Island, finish the tutorial, and you'll receive the starter rod and bobber. Clear the island quests to unlock the full loop.</p>
+              </article>
+              <article class="faq-item">
+                <h3>What should I prep before farming rare fish?</h3>
+                <p>Upgrade your rod/bobber quality, grab Fish Radar, stack Luck/Mutation stats, and run the <router-link to="/calculator/fish-it-rng-calculator" class="inline-link">Catch RNG Calculator</router-link> to gauge efficiency.</p>
+              </article>
+              <article class="faq-item">
+                <h3>Do I really need a boat?</h3>
+                <p>Yes. Without a boat you're stuck on the starter island. Buy a Wooden Skiff to reach Coralcrest and beyond for rarer fish and gear.</p>
+              </article>
+              <article class="faq-item">
+                <h3>How can I contribute to the wiki?</h3>
+                <p>Use the "ADD NEW PAGE" or "EDIT" buttons on the official wiki to submit findings—we'll surface notable updates here as well.</p>
+              </article>
+              <article class="faq-item">
+                <h3>How do I calculate my catch odds for Secret fish?</h3>
+                <p>Use our <router-link to="/calculator/fish-it-rng-calculator" class="inline-link">RNG Calculator</router-link> to estimate how many attempts and hours you'll need.</p>
+              </article>
+              <article class="faq-item">
+                <h3>Where can I find active game codes?</h3>
+                <p>Check our <router-link to="/codes" class="inline-link">Codes page</router-link> for all active redemption codes.</p>
               </article>
             </div>
           </div>
@@ -517,32 +532,6 @@ const playerReviews = ref([
   }
 ])
 
-const faqList = ref([
-  {
-    id: 1,
-    question: 'How do I start Fish It?',
-    answer:
-      'Load into Fisherman Island, finish the tutorial, and you’ll receive the starter rod and bobber. Clear the island quests to unlock the full loop.'
-  },
-  {
-    id: 2,
-    question: 'What should I prep before farming rare fish?',
-    answer:
-      'Upgrade your rod/bobber quality, grab Fish Radar, stack Luck/Mutation stats, and run the Catch RNG Calculator to gauge efficiency.'
-  },
-  {
-    id: 3,
-    question: 'Do I really need a boat?',
-    answer:
-      'Yes. Without a boat you’re stuck on the starter island. Buy a Wooden Skiff to reach Coralcrest and beyond for rarer fish and gear.'
-  },
-  {
-    id: 4,
-    question: 'How can I contribute to the wiki?',
-    answer:
-      'Use the “ADD NEW PAGE” or “EDIT” buttons on the official wiki to submit findings—we’ll surface notable updates here as well.'
-  }
-])
 </script>
 
 <style scoped>
@@ -1641,11 +1630,24 @@ section {
   color: #ffd6d6;
 }
 
-.faq-item p {
-  color: rgba(255, 255, 255, 0.78);
-  line-height: 1.6;
-  font-size: 14px;
-}
+  .faq-item p {
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .inline-link {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .inline-link:hover {
+    color: #93c5fd;
+    border-bottom-color: #93c5fd;
+  }
 
 .guides-content,
 .featured-rods-content,
