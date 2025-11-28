@@ -9,6 +9,93 @@
       }
     }
   ],
+  "redirects": [
+    {
+      "source": "/fish-it-guides",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-guides/:slug*",
+      "destination": "/guides/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-wiki",
+      "destination": "/wiki",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/boats",
+      "destination": "/wiki/fish-it-boats",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/bobbers",
+      "destination": "/wiki/fish-it-bobbers",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/fish",
+      "destination": "/wiki/fish-it-fish",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/rods",
+      "destination": "/wiki/fish-it-rods",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/boats/:slug*",
+      "destination": "/wiki/fish-it-boats/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/bobbers/:slug*",
+      "destination": "/wiki/fish-it-bobbers/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/fish/:slug*",
+      "destination": "/wiki/fish-it-fish/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/rods/:slug*",
+      "destination": "/wiki/fish-it-rods/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-calculator",
+      "destination": "/calculator",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-calculator/fish-it-rng-calculator",
+      "destination": "/calculator/fish-it-rng-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-calculator/fish-it-luck-calculator",
+      "destination": "/calculator/fish-it-luck-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-calculator/fish-it-value-calculator",
+      "destination": "/calculator/fish-it-value-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-calculator/fish-it-secret-calculator",
+      "destination": "/calculator/fish-it-secret-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/fish-it-codes",
+      "destination": "/codes",
+      "permanent": true
+    }
+  ],
   "routes": [
     { "handle": "filesystem" },
     {

@@ -30,6 +30,9 @@ import CopyrightView from '@/views/legal/CopyrightView.vue'
 import PrivacyPolicyView from '@/views/legal/PrivacyPolicyView.vue'
 import TermsOfServiceView from '@/views/legal/TermsOfServiceView.vue'
 
+// 404
+import NotFoundView from '@/views/NotFoundView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -256,6 +259,91 @@ const router = createRouter({
           title: 'Terms of Service | FishItgame.com',
           description: 'Review the FishItgame.com terms of service covering acceptable use, disclaimers, and legal notices.',
           keywords: 'Fish It terms, fishitgame terms of service'
+        }
+      }
+    },
+    // 旧路径重定向 - Guides
+    {
+      path: '/fish-it-guides',
+      redirect: '/guides'
+    },
+    {
+      path: '/fish-it-guides/:slug',
+      redirect: (to) => `/guides/${to.params.slug}`
+    },
+    // 旧路径重定向 - Wiki
+    {
+      path: '/fish-it-wiki',
+      redirect: '/wiki'
+    },
+    {
+      path: '/wiki/boats',
+      redirect: '/wiki/fish-it-boats'
+    },
+    {
+      path: '/wiki/bobbers',
+      redirect: '/wiki/fish-it-bobbers'
+    },
+    {
+      path: '/wiki/fish',
+      redirect: '/wiki/fish-it-fish'
+    },
+    {
+      path: '/wiki/rods',
+      redirect: '/wiki/fish-it-rods'
+    },
+    {
+      path: '/wiki/boats/:slug',
+      redirect: (to) => `/wiki/fish-it-boats/${to.params.slug}`
+    },
+    {
+      path: '/wiki/bobbers/:slug',
+      redirect: (to) => `/wiki/fish-it-bobbers/${to.params.slug}`
+    },
+    {
+      path: '/wiki/fish/:slug',
+      redirect: (to) => `/wiki/fish-it-fish/${to.params.slug}`
+    },
+    {
+      path: '/wiki/rods/:slug',
+      redirect: (to) => `/wiki/fish-it-rods/${to.params.slug}`
+    },
+    // 旧路径重定向 - Calculator
+    {
+      path: '/fish-it-calculator',
+      redirect: '/calculator'
+    },
+    {
+      path: '/fish-it-calculator/fish-it-rng-calculator',
+      redirect: '/calculator/fish-it-rng-calculator'
+    },
+    {
+      path: '/fish-it-calculator/fish-it-luck-calculator',
+      redirect: '/calculator/fish-it-luck-calculator'
+    },
+    {
+      path: '/fish-it-calculator/fish-it-value-calculator',
+      redirect: '/calculator/fish-it-value-calculator'
+    },
+    {
+      path: '/fish-it-calculator/fish-it-secret-calculator',
+      redirect: '/calculator/fish-it-secret-calculator'
+    },
+    // 旧路径重定向 - Codes
+    {
+      path: '/fish-it-codes',
+      redirect: '/codes'
+    },
+    // 404 页面 - 所有未匹配的路径显示404页面
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFoundView,
+      meta: {
+        seo: {
+          title: '404 - Page Not Found | fishitgame.com',
+          description: 'The page you are looking for does not exist. Return to the Fish It! homepage or browse our Wiki, Guides, Calculator, and Codes.',
+          keywords: '404, page not found, fishitgame'
         }
       }
     },
