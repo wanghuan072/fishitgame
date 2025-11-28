@@ -110,7 +110,7 @@
                 <td class="boat-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/boats${item.addressBar}`"
+                    :to="`/wiki/fish-it-boats${item.addressBar}`"
                     class="boat-name-link"
                   >
                     {{ item.title }}
@@ -167,7 +167,7 @@
                 <td class="boat-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/boats${item.addressBar}`"
+                    :to="`/wiki/fish-it-boats${item.addressBar}`"
                     class="boat-name-link"
                   >
                     {{ item.title }}
@@ -224,7 +224,7 @@
                 <td class="boat-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/boats${item.addressBar}`"
+                    :to="`/wiki/fish-it-boats${item.addressBar}`"
                     class="boat-name-link"
                   >
                     {{ item.title }}
@@ -281,7 +281,7 @@
                 <td class="boat-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/boats${item.addressBar}`"
+                    :to="`/wiki/fish-it-boats${item.addressBar}`"
                     class="boat-name-link"
                   >
                     {{ item.title }}
@@ -338,7 +338,7 @@
                 <td class="boat-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/boats${item.addressBar}`"
+                    :to="`/wiki/fish-it-boats${item.addressBar}`"
                     class="boat-name-link"
                   >
                     {{ item.title }}
@@ -385,7 +385,7 @@ const onItemClick = (item) => {
   if (item && item.showDetail === false) return
   const id = (item.addressBar || '').replace(/^\//, '').replace(/\/$/, '')
   if (!id) return
-  router.push(`/fish-it-wiki/boats/${id}`)
+  router.push(`/wiki/fish-it-boats/${id}`)
 }
 </script>
 

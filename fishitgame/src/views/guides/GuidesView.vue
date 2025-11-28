@@ -51,7 +51,7 @@ const formatDate = (dateStr) =>
 
 const handleGuideClick = (guide) => {
   if (guide.addressBar) {
-    router.push(`/fish-it-guides${guide.addressBar}`)
+    router.push(`/guides${guide.addressBar}`)
   }
 }
 </script>

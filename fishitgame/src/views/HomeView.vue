@@ -14,10 +14,10 @@
                 to become the legendary angler every island talks about.
               </p>
               <div class="hero-actions">
-                <router-link to="/fish-it-calculator/fish-it-rng-calculator" class="btn-hero btn-xbox">
+                <router-link to="/calculator/fish-it-rng-calculator" class="btn-hero btn-xbox">
                   <span>Fish It RNG Calculator</span>
                 </router-link>
-                <router-link to="/fish-it-wiki" class="btn-hero btn-secondary">Browse the Wiki</router-link>
+                <router-link to="/wiki" class="btn-hero btn-secondary">Browse the Wiki</router-link>
               </div>
               <div class="hero-stats">
                 <div class="stat">
@@ -156,7 +156,7 @@
               </article>
             </div>
             <div class="section-actions">
-              <router-link to="/fish-it-guides" class="btn-hero btn-secondary">See all guides</router-link>
+              <router-link to="/guides" class="btn-hero btn-secondary">See all guides</router-link>
             </div>
           </div>
         </div>
@@ -200,7 +200,7 @@
                   </div>
                   <router-link
                     v-if="fish.showDetail"
-                    :to="`/fish-it-wiki/fish${fish.addressBar}`"
+                    :to="`/wiki/fish-it-fish${fish.addressBar}`"
                     class="fish-link"
                   >
                     View details →
@@ -209,7 +209,7 @@
               </article>
             </div>
             <div class="section-actions">
-              <router-link to="/fish-it-wiki/fish" class="btn-hero btn-secondary">Open the Fish Index</router-link>
+              <router-link to="/wiki/fish-it-fish" class="btn-hero btn-secondary">Open the Fish Index</router-link>
             </div>
           </div>
         </div>
@@ -258,7 +258,7 @@
                   </div>
                   <router-link
                     v-if="bait.showDetail"
-                    :to="`/fish-it-wiki/bobbers${bait.addressBar}`"
+                    :to="`/wiki/fish-it-bobbers${bait.addressBar}`"
                     class="bait-link"
                   >
                     View details →
@@ -267,7 +267,7 @@
               </article>
             </div>
             <div class="section-actions">
-              <router-link to="/fish-it-wiki/bobbers" class="btn-hero btn-secondary">Explore Bobber data</router-link>
+              <router-link to="/wiki/fish-it-bobbers" class="btn-hero btn-secondary">Explore Bobber data</router-link>
             </div>
           </div>
         </div>
@@ -317,7 +317,7 @@
                   </div>
                   <router-link
                     v-if="boat.showDetail"
-                    :to="`/fish-it-wiki/boats${boat.addressBar}`"
+                    :to="`/wiki/fish-it-boats${boat.addressBar}`"
                     class="boat-link"
                   >
                     View details →
@@ -326,7 +326,7 @@
               </article>
             </div>
             <div class="section-actions">
-              <router-link to="/fish-it-wiki/boats" class="btn-hero btn-secondary">Browse Boats & Utility</router-link>
+              <router-link to="/wiki/fish-it-boats" class="btn-hero btn-secondary">Browse Boats & Utility</router-link>
             </div>
           </div>
         </div>
@@ -374,7 +374,7 @@
                   <p class="rod-meta-text">{{ rod.stats?.Acquisition || 'Check rod detail page for acquisition steps.' }}</p>
                   <router-link
                     v-if="rod.showDetail"
-                    :to="`/fish-it-wiki/rods${rod.addressBar}`"
+                    :to="`/wiki/fish-it-rods${rod.addressBar}`"
                     class="rod-link"
                   >
                     View details →
@@ -383,7 +383,7 @@
               </article>
             </div>
             <div class="section-actions">
-              <router-link to="/fish-it-wiki/rods" class="btn-hero btn-secondary">View the full Rod index</router-link>
+              <router-link to="/wiki/fish-it-rods" class="btn-hero btn-secondary">View the full Rod index</router-link>
             </div>
           </div>
         </div>
@@ -468,7 +468,7 @@ const formatCategoryLabel = (value) => {
 
 const handleGuideClick = (guide) => {
   if (guide.addressBar) {
-    router.push(`/fish-it-guides${guide.addressBar}`)
+    router.push(`/guides${guide.addressBar}`)
   }
 }
 

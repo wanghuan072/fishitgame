@@ -65,7 +65,7 @@
                 <td class="rod-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/rods${item.addressBar}`"
+                    :to="`/wiki/fish-it-rods${item.addressBar}`"
                     class="rod-name-link"
                   >
                     {{ item.title }}

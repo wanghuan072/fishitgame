@@ -57,7 +57,7 @@
                 <td class="bobber-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/bobbers${item.addressBar}`"
+                    :to="`/wiki/fish-it-bobbers${item.addressBar}`"
                     class="bobber-name-link"
                   >
                     {{ item.title }}
@@ -124,7 +124,7 @@
                 <td class="bobber-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/bobbers${item.addressBar}`"
+                    :to="`/wiki/fish-it-bobbers${item.addressBar}`"
                     class="bobber-name-link"
                   >
                     {{ item.title }}
@@ -191,7 +191,7 @@
                 <td class="bobber-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/bobbers${item.addressBar}`"
+                    :to="`/wiki/fish-it-bobbers${item.addressBar}`"
                     class="bobber-name-link"
                   >
                     {{ item.title }}
@@ -246,7 +246,7 @@ const onItemClick = (item) => {
   if (item && item.showDetail === false) return
   const id = (item.addressBar || '').replace(/^\//, '').replace(/\/$/, '')
   if (!id) return
-  router.push(`/fish-it-wiki/bobbers/${id}`)
+  router.push(`/wiki/fish-it-bobbers/${id}`)
 }
 </script>
 

@@ -82,7 +82,10 @@
 import { ref } from 'vue'
 
 const activeCodes = ref([
-  { code: 'BLAMETALON', reward: '1x Luck || Potion', isNew: true },
+  { code: 'COUNTTRANSCENDEDSTONES', reward: 'Freebies, must be level 10 and own the Transcended Stones', isNew: true },
+  { code: '1BILLION', reward: 'Freebies, must be level 10 ', isNew: false },
+  { code: 'EXPANSION', reward: 'Freebies, must be level 10', isNew: false },
+  { code: 'PURPLEMOON', reward: 'Freebies', isNew: false },
   { code: 'TRAVEL', reward: '1x Luck || Potion', isNew: false },
   { code: 'MEGA', reward: '2x Luck || Potions', isNew: false },
   { code: 'ARMOR', reward: '1x Luck || Potion', isNew: false },

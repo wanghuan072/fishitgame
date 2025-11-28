@@ -79,8 +79,8 @@ export const guides = [
 </ol>
 
 <p>
-    <a href="/fish-it-calculator/fish-it-value-calculator" rel="noopener noreferrer" target="_blank">💡 Fish Value Calculator</a>
-    <a href="/fish-it-calculator/fish-it-luck-calculator" rel="noopener noreferrer" target="_blank">🍀 Luck Calculator</a>
+    <a href="/calculator/fish-it-value-calculator" rel="noopener noreferrer" target="_blank">💡 Fish Value Calculator</a>
+    <a href="/calculator/fish-it-luck-calculator" rel="noopener noreferrer" target="_blank">🍀 Luck Calculator</a>
 </p>
 
     `,

@@ -20,7 +20,7 @@
       </div>
       <div v-else class="empty-state">
         <p>This wiki entry doesn’t exist yet.</p>
-        <router-link to="/fish-it-wiki" class="back-link">Back to Wiki</router-link>
+        <router-link to="/wiki" class="back-link">Back to Wiki</router-link>
       </div>
     </div>
   </section>
@@ -33,7 +33,15 @@ import { wikiDataMap, wikiCategories } from '@/data/wiki/index.js'
 
 const route = useRoute()
 
-const categoryKey = computed(() => route.params.category)
+const categoryKey = computed(() => {
+  const category = route.params.category
+  // 从 fish-it-boats 等格式中提取 boats 等原始 key
+  if (category && category.startsWith('fish-it-')) {
+    return category.replace('fish-it-', '')
+  }
+  return category
+})
+
 const slug = computed(() => `/${route.params.slug ?? ''}`)
 
 const entries = computed(() => wikiDataMap[categoryKey.value] ?? [])
@@ -45,8 +53,12 @@ const categoryName = computed(() => {
 })
 
 const backLink = computed(() => {
-  const category = categoryKey.value
-  return category ? `/fish-it-wiki/${category}` : '/fish-it-wiki'
+  const category = route.params.category
+  // 如果 category 是 fish-it-* 格式，直接使用；否则构建完整路径
+  if (category && category.startsWith('fish-it-')) {
+    return `/wiki/${category}`
+  }
+  return category ? `/wiki/fish-it-${category}` : '/wiki'
 })
 
 const statEntries = computed(() => {

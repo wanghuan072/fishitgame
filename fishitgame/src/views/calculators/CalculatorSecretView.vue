@@ -211,7 +211,7 @@ const clearFilters = () => {
 
 // Open RNG Calculator
 const openRngCalculator = () => {
-  router.push('/fish-it-calculator/fish-it-rng-calculator')
+  router.push('/calculator/fish-it-rng-calculator')
 }
 </script>
 

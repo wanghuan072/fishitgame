@@ -55,7 +55,7 @@
                 <td class="fish-name-cell">
                   <router-link
                     v-if="item.showDetail"
-                    :to="`/fish-it-wiki/fish${item.addressBar}`"
+                    :to="`/wiki/fish-it-fish${item.addressBar}`"
                     class="fish-name-link"
                   >
                     {{ item.title }}

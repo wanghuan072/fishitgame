@@ -2,7 +2,7 @@
   <section class="guide-detail">
     <div class="container">
       <div v-if="guide">
-        <router-link class="back-link" to="/fish-it-guides">← Back to guides</router-link>
+        <router-link class="back-link" to="/guides">← Back to guides</router-link>
         <p class="meta">{{ formatDate(guide.publishDate) }}</p>
         <h1>{{ guide.title }}</h1>
         <p class="description">{{ guide.description }}</p>
@@ -13,7 +13,7 @@
       </div>
       <div v-else class="empty-state">
         <p>The requested guide was not found.</p>
-        <router-link to="/fish-it-guides" class="back-link">Back to list</router-link>
+        <router-link to="/guides" class="back-link">Back to list</router-link>
       </div>
     </div>
   </section>

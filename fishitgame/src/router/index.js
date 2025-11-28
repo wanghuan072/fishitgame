@@ -46,7 +46,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-guides',
+      path: '/guides',
       name: 'guides',
       component: GuidesView,
       meta: {
@@ -58,12 +58,12 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-guides/:slug',
+      path: '/guides/:slug',
       name: 'guide-detail',
       component: GuideDetailView,
     },
     {
-      path: '/fish-it-wiki',
+      path: '/wiki',
       name: 'wiki',
       component: WikiView,
       meta: {
@@ -75,7 +75,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-wiki/boats',
+      path: '/wiki/fish-it-boats',
       name: 'wiki-boats',
       component: WikiBoatsView,
       meta: {
@@ -87,7 +87,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-wiki/bobbers',
+      path: '/wiki/fish-it-bobbers',
       name: 'wiki-bobbers',
       component: WikiBobbersView,
       meta: {
@@ -99,7 +99,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-wiki/fish',
+      path: '/wiki/fish-it-fish',
       name: 'wiki-fish',
       component: WikiFishView,
       meta: {
@@ -111,7 +111,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-wiki/rods',
+      path: '/wiki/fish-it-rods',
       name: 'wiki-rods',
       component: WikiRodsView,
       meta: {
@@ -123,12 +123,12 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-wiki/:category/:slug',
+      path: '/wiki/:category/:slug',
       name: 'wiki-detail',
       component: WikiDetailView,
     },
     {
-      path: '/fish-it-calculator',
+      path: '/calculator',
       name: 'calculator',
       component: CalculatorView,
       meta: {
@@ -140,7 +140,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-calculator/fish-it-rng-calculator',
+      path: '/calculator/fish-it-rng-calculator',
       name: 'calculator-rng',
       component: CalculatorRngView,
       meta: {
@@ -152,7 +152,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-calculator/fish-it-luck-calculator',
+      path: '/calculator/fish-it-luck-calculator',
       name: 'calculator-luck',
       component: CalculatorLuckView,
       meta: {
@@ -164,7 +164,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-calculator/fish-it-value-calculator',
+      path: '/calculator/fish-it-value-calculator',
       name: 'calculator-value',
       component: CalculatorValueView,
       meta: {
@@ -176,7 +176,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-calculator/fish-it-secret-calculator',
+      path: '/calculator/fish-it-secret-calculator',
       name: 'calculator-secret',
       component: CalculatorSecretView,
       meta: {
@@ -188,7 +188,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/fish-it-codes',
+      path: '/codes',
       name: 'codes',
       component: CodesView,
       meta: {

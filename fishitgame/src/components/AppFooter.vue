@@ -23,10 +23,10 @@
           <h2>Navigate</h2>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/fish-it-wiki" >Wiki</a></li>
-            <li><a href="/fish-it-guides">Guides</a></li>
-            <li><a href="/fish-it-codes">Codes</a></li>
-            <li><a href="/fish-it-calculator">Calculator</a></li>
+            <li><a href="/wiki" >Wiki</a></li>
+            <li><a href="/guides">Guides</a></li>
+            <li><a href="/codes">Codes</a></li>
+            <li><a href="/calculator">Calculator</a></li>
           </ul>
         </div>
         <div class="link-column">

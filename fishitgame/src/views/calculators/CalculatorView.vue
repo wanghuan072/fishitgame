@@ -69,7 +69,7 @@ const calculatorsList = ref([
 ])
 
 const handleCalculatorClick = (calculator) => {
-  router.push(`/fish-it-calculator/${calculator.slug}`)
+  router.push(`/calculator/${calculator.slug}`)
 }
 </script>
 

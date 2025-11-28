@@ -13,18 +13,18 @@ const seoConfig = {
 // 基础路由配置
 const baseRoutes = [
   { path: '/', name: 'home', priority: 1.0, changefreq: 'weekly' },
-  { path: '/fish-it-guides', name: 'guides', priority: 0.9, changefreq: 'weekly' },
-  { path: '/fish-it-wiki', name: 'wiki', priority: 0.8, changefreq: 'weekly' },
-  { path: '/fish-it-wiki/boats', name: 'wiki-boats', priority: 0.7, changefreq: 'weekly' },
-  { path: '/fish-it-wiki/bobbers', name: 'wiki-bobbers', priority: 0.7, changefreq: 'weekly' },
-  { path: '/fish-it-wiki/fish', name: 'wiki-fish', priority: 0.7, changefreq: 'weekly' },
-  { path: '/fish-it-wiki/rods', name: 'wiki-rods', priority: 0.7, changefreq: 'weekly' },
-  { path: '/fish-it-calculator', name: 'calculator', priority: 0.8, changefreq: 'monthly' },
-  { path: '/fish-it-calculator/fish-it-rng-calculator', name: 'calculator-rng', priority: 0.7, changefreq: 'monthly' },
-  { path: '/fish-it-calculator/fish-it-luck-calculator', name: 'calculator-luck', priority: 0.7, changefreq: 'monthly' },
-  { path: '/fish-it-calculator/fish-it-value-calculator', name: 'calculator-value', priority: 0.7, changefreq: 'monthly' },
-  { path: '/fish-it-calculator/fish-it-secret-calculator', name: 'calculator-secret', priority: 0.7, changefreq: 'monthly' },
-  { path: '/fish-it-codes', name: 'codes', priority: 0.8, changefreq: 'weekly' },
+  { path: '/guides', name: 'guides', priority: 0.9, changefreq: 'weekly' },
+  { path: '/wiki', name: 'wiki', priority: 0.8, changefreq: 'weekly' },
+  { path: '/wiki/fish-it-boats', name: 'wiki-boats', priority: 0.7, changefreq: 'weekly' },
+  { path: '/wiki/fish-it-bobbers', name: 'wiki-bobbers', priority: 0.7, changefreq: 'weekly' },
+  { path: '/wiki/fish-it-fish', name: 'wiki-fish', priority: 0.7, changefreq: 'weekly' },
+  { path: '/wiki/fish-it-rods', name: 'wiki-rods', priority: 0.7, changefreq: 'weekly' },
+  { path: '/calculator', name: 'calculator', priority: 0.8, changefreq: 'monthly' },
+  { path: '/calculator/fish-it-rng-calculator', name: 'calculator-rng', priority: 0.7, changefreq: 'monthly' },
+  { path: '/calculator/fish-it-luck-calculator', name: 'calculator-luck', priority: 0.7, changefreq: 'monthly' },
+  { path: '/calculator/fish-it-value-calculator', name: 'calculator-value', priority: 0.7, changefreq: 'monthly' },
+  { path: '/calculator/fish-it-secret-calculator', name: 'calculator-secret', priority: 0.7, changefreq: 'monthly' },
+  { path: '/codes', name: 'codes', priority: 0.8, changefreq: 'weekly' },
   { path: '/about', name: 'about', priority: 0.4, changefreq: 'yearly' },
   { path: '/contact', name: 'contact', priority: 0.4, changefreq: 'yearly' },
   { path: '/copyright', name: 'copyright', priority: 0.3, changefreq: 'yearly' },
@@ -96,7 +96,7 @@ async function generateSitemap(data) {
   const guides = data.guides || []
   guides.forEach(guide => {
     if (!guide || !guide.addressBar) return
-    const guidePath = `/fish-it-guides${guide.addressBar}`
+    const guidePath = `/guides${guide.addressBar}`
     sitemapXml += `\n${generateUrlXml(guidePath, guide.publishDate || lastmod, 0.8, 'monthly')}`
   })
 
@@ -109,7 +109,7 @@ async function generateSitemap(data) {
       .filter(item => item && item.showDetail !== false && item.addressBar)
       .forEach(item => {
         const cleanAddressBar = item.addressBar.replace(/^\//, '').replace(/\/$/, '')
-        const itemPath = `/fish-it-wiki/${category}/${cleanAddressBar}`
+        const itemPath = `/wiki/fish-it-${category}/${cleanAddressBar}`
         sitemapXml += `\n${generateUrlXml(itemPath, item.publishDate || lastmod, 0.6, 'monthly')}`
       })
   }

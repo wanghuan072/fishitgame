@@ -6,8 +6,7 @@
           <p class="hero-eyebrow">Tools · Calculator</p>
           <h1>Fish It Value Calculator</h1>
           <p>
-            Calculate the total value of your fish catches. Add multiple fish species with quantities and prices to
-            determine your total earnings potential.
+            Calculate the total value of your fish based on base value and mutation multipliers. Add multiple fish species with base values and mutations to determine your total earnings potential.
           </p>
         </div>
       </header>
@@ -62,21 +61,10 @@
                     </div>
                   </div>
                   <div class="form-group-inline">
-                    <label>Quantity:</label>
-                    <input
-                      v-model.number="item.quantity"
-                      type="number"
-                      min="1"
-                      step="1"
-                      placeholder="1"
-                      class="number-input-small"
-                    />
-                  </div>
-                  <div class="form-group-inline">
-                    <label>Value per Fish:</label>
+                    <label>fish basic value:</label>
                     <div class="value-input-group">
                       <input
-                        v-model.number="item.value"
+                        v-model.number="item.baseValue"
                         type="number"
                         min="0"
                         step="1"
@@ -84,6 +72,29 @@
                         class="number-input-small"
                       />
                       <span class="currency-symbol">Coins</span>
+                    </div>
+                  </div>
+                  <div class="form-group-inline">
+                    <label>Mutation:</label>
+                    <div class="custom-select-wrapper">
+                      <div class="custom-select" :class="{ open: item.isMutationOpen }" @click="toggleMutationSelect(index)">
+                        <span class="select-display">
+                          {{ item.mutation ? `${item.mutation.name} (×${item.mutation.multiplier})` : '-- Select mutation --' }}
+                        </span>
+                        <span class="select-arrow">▼</span>
+                      </div>
+                      <div v-if="item.isMutationOpen" class="select-dropdown">
+                        <div
+                          v-for="mutation in mutations"
+                          :key="mutation.name"
+                          class="select-option"
+                          :class="{ selected: item.mutation?.name === mutation.name }"
+                          @click="selectMutation(index, mutation)"
+                        >
+                          {{ mutation.name }}
+                          <span class="option-meta">×{{ mutation.multiplier }}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="item-total">
@@ -110,7 +121,7 @@
                 <div class="value-label">Total Value</div>
                 <div class="value-amount">{{ formatCoins(totalValue) }}</div>
                 <div class="value-summary">
-                  {{ totalQuantity }} fish · {{ fishItems.length }} species
+                  {{ totalFishTypes }} fish species
                 </div>
               </div>
 
@@ -120,14 +131,14 @@
                   v-for="(item, index) in fishItems"
                   :key="item.id"
                   class="breakdown-item"
-                  v-show="item.quantity > 0 && item.value > 0"
+                  v-show="item.baseValue > 0 && item.mutation"
                 >
                   <div class="breakdown-fish">
                     <span class="breakdown-name">{{ item.fish?.title || `Fish ${index + 1}` }}</span>
-                    <span class="breakdown-quantity">× {{ item.quantity }}</span>
+                    <span class="breakdown-quantity">{{ item.mutation?.name || 'No mutation' }} (×{{ item.mutation?.multiplier || 1 }})</span>
                   </div>
                   <div class="breakdown-value-group">
-                    <span class="breakdown-unit">{{ formatCoins(item.value) }} each</span>
+                    <span class="breakdown-unit">{{ formatCoins(item.baseValue || 0) }} base</span>
                     <span class="breakdown-total">{{ formatCoins(calculateSubtotal(item)) }}</span>
                   </div>
                 </div>
@@ -139,19 +150,17 @@
 
               <div class="value-info">
                 <p>
-                  <strong>How to use:</strong> Select fish species from your inventory, enter the quantity you have,
-                  and input the market value per fish. The calculator will automatically compute the total value.
+                  <strong>How to use:</strong> Select fish species from your inventory, enter the base value, and select the mutation type. The calculator will compute the total value by multiplying base value with the mutation multiplier.
                 </p>
                 <p>
-                  <strong>Tip:</strong> Fish values can vary based on rarity, demand, and market conditions. Update
-                  values regularly for accurate calculations.
+                  <strong>Tip:</strong> Different mutations have different multipliers. Higher multipliers like Galaxy (×6.5) and Gemstone (×5.2) significantly increase fish value.
                 </p>
               </div>
             </div>
 
             <div v-else class="empty-state">
               <div class="empty-icon">💰</div>
-              <p>Add fish to your inventory and click "Calculate Total Value" to see your total earnings.</p>
+              <p>Add fish to your inventory with base value and mutation, then click "Calculate Total Value" to see your total earnings.</p>
             </div>
           </div>
         </div>
@@ -167,6 +176,25 @@ import fishData from '@/data/wiki/fish.js'
 const fishItems = ref([])
 const showResults = ref(false)
 let fishItemIdCounter = 0
+
+// Mutation options
+const mutations = [
+  { name: 'Big', multiplier: 1.1 },
+  { name: 'shiny', multiplier: 2.5 },
+  { name: 'Midnight', multiplier: 4.5 },
+  { name: 'Albino', multiplier: 2.4 },
+  { name: 'sandy', multiplier: 2.2 },
+  { name: 'Frozen', multiplier: 3 },
+  { name: 'shiny*Frozen', multiplier: 4.5 },
+  { name: 'Corrupt', multiplier: 4.5 },
+  { name: 'Radioactive', multiplier: 4.3 },
+  { name: 'Stone', multiplier: 2.2 },
+  { name: 'ghost', multiplier: 3.5 },
+  { name: 'Gemstone', multiplier: 5.2 },
+  { name: 'Holographic', multiplier: 3.8 },
+  { name: 'Galaxy', multiplier: 6.5 },
+  { name: 'Gold', multiplier: 3.8 }
+]
 
 // Group fish by category
 const groupedFish = computed(() => {
@@ -201,9 +229,22 @@ const toggleFishSelect = (index) => {
   fishItems.value.forEach((item, i) => {
     if (i !== index) {
       item.isSelectOpen = false
+      item.isMutationOpen = false
     }
   })
   fishItems.value[index].isSelectOpen = !fishItems.value[index].isSelectOpen
+}
+
+// Toggle mutation select
+const toggleMutationSelect = (index) => {
+  // Close all other selects
+  fishItems.value.forEach((item, i) => {
+    if (i !== index) {
+      item.isSelectOpen = false
+      item.isMutationOpen = false
+    }
+  })
+  fishItems.value[index].isMutationOpen = !fishItems.value[index].isMutationOpen
 }
 
 // Select fish
@@ -212,14 +253,21 @@ const selectFish = (index, fish) => {
   fishItems.value[index].isSelectOpen = false
 }
 
+// Select mutation
+const selectMutation = (index, mutation) => {
+  fishItems.value[index].mutation = mutation
+  fishItems.value[index].isMutationOpen = false
+}
+
 // Add fish item
 const addFishItem = () => {
   fishItems.value.push({
     id: fishItemIdCounter++,
     fish: null,
-    quantity: 1,
-    value: 0,
+    baseValue: 0,
+    mutation: null,
     isSelectOpen: false,
+    isMutationOpen: false,
   })
 }
 
@@ -230,9 +278,9 @@ const removeFishItem = (index) => {
 
 // Calculate subtotal for each item
 const calculateSubtotal = (item) => {
-  const quantity = item.quantity || 0
-  const value = item.value || 0
-  return quantity * value
+  const baseValue = item.baseValue || 0
+  const multiplier = item.mutation?.multiplier || 1
+  return baseValue * multiplier
 }
 
 // Total value
@@ -242,11 +290,9 @@ const totalValue = computed(() => {
   }, 0)
 })
 
-// Total quantity
-const totalQuantity = computed(() => {
-  return fishItems.value.reduce((sum, item) => {
-    return sum + (item.quantity || 0)
-  }, 0)
+// Total fish types
+const totalFishTypes = computed(() => {
+  return fishItems.value.filter(item => item.fish && item.baseValue > 0).length
 })
 
 // Format coins
@@ -277,6 +323,7 @@ onMounted(() => {
     if (!e.target.closest('.custom-select-wrapper')) {
       fishItems.value.forEach((item) => {
         item.isSelectOpen = false
+        item.isMutationOpen = false
       })
     }
   })

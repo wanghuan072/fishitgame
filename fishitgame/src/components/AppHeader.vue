@@ -14,10 +14,10 @@
         <div class="menu-overlay" :class="{ open: isMenuOpen }" @click="closeMenu"></div>
         <nav class="nav-links" :class="{ open: isMenuOpen }">
           <router-link to="/" @click="closeMenu">Home</router-link>
-          <router-link to="/fish-it-wiki" @click="closeMenu">Wiki</router-link>
-          <router-link to="/fish-it-guides" @click="closeMenu">Guides</router-link>
-          <router-link to="/fish-it-codes" @click="closeMenu">Codes</router-link>
-          <router-link to="/fish-it-calculator" @click="closeMenu">Calculator</router-link>
+          <router-link to="/wiki" @click="closeMenu">Wiki</router-link>
+          <router-link to="/guides" @click="closeMenu">Guides</router-link>
+          <router-link to="/codes" @click="closeMenu">Codes</router-link>
+          <router-link to="/calculator" @click="closeMenu">Calculator</router-link>
         </nav>
       </div>
     </div>
