@@ -31,6 +31,7 @@
                 <tr>
                   <th>Code</th>
                   <th>Reward</th>
+                  <th class="copy-header"></th>
                 </tr>
               </thead>
               <tbody>
@@ -40,6 +41,15 @@
                     <span v-if="code.isNew" class="new-badge">New</span>
                   </td>
                   <td class="reward-cell">{{ code.reward }}</td>
+                  <td class="copy-cell">
+                    <button
+                      class="copy-button"
+                      :class="{ copied: copiedCode === code.code }"
+                      @click="copyCode(code.code)"
+                    >
+                      {{ copiedCode === code.code ? 'Copied' : 'Copy' }}
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -73,6 +83,37 @@
             <span v-for="code in expiredCodes" :key="code" class="expired-code">{{ code }}</span>
           </div>
         </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h3>How often are new codes released?</h3>
+              <p>New codes are released periodically by the developers, often during special events, updates, or milestones. We update this page regularly to include all active codes. Make sure to check back frequently and redeem codes as soon as possible since they can expire.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Why isn't my code working?</h3>
+              <p>Codes are case sensitive, so make sure you're entering them exactly as shown. Also, remember to delete any space at the end of the code. If a code still doesn't work, it may have expired. Check the expired codes list to see if it's there, or try again later as codes sometimes have temporary issues.</p>
+            </div>
+            <div class="faq-item">
+              <h3>What do Luck potions do?</h3>
+              <p>Luck potions boost your luck percentage for a set amount of time, which increases your catch rates for rare and Secret fish. The higher your luck, the better your chances of catching rare fish. Use our <router-link to="/calculator/fish-it-luck-calculator" class="inline-link">Luck Calculator</router-link> to see how potions affect your total luck multiplier.</p>
+            </div>
+            <div class="faq-item">
+              <h3>What do Mutation potions do?</h3>
+              <p>Mutation potions increase the chances of your caught fish being mutated. Mutations like Galaxy, Gemstone, or Midnight significantly increase fish value. Check the <router-link to="/calculator/fish-it-value-calculator" class="inline-link">Value Calculator</router-link> to see how different mutations affect fish worth.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Can I use the same code multiple times?</h3>
+              <p>No, codes are one-time use only. Once you've redeemed a code, you cannot use it again on the same account. Make sure to use codes as soon as you get them to avoid missing out on rewards.</p>
+            </div>
+            <div class="faq-item">
+              <h3>Where do I redeem codes in the game?</h3>
+              <p>You can redeem codes from anywhere on the map. Simply press the SHOP button at the top of the screen, enter the code in the "ENTER CODE!" text box, and hit Redeem. The process is quick and easy, and you'll receive your items immediately.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -81,21 +122,45 @@
 <script setup>
 import { ref } from 'vue'
 
+const copiedCode = ref(null)
+
+const copyCode = async (code) => {
+  try {
+    await navigator.clipboard.writeText(code)
+    copiedCode.value = code
+    setTimeout(() => {
+      copiedCode.value = null
+    }, 2000)
+  } catch (err) {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea')
+    textArea.value = code
+    textArea.style.position = 'fixed'
+    textArea.style.opacity = '0'
+    document.body.appendChild(textArea)
+    textArea.select()
+    try {
+      document.execCommand('copy')
+      copiedCode.value = code
+      setTimeout(() => {
+        copiedCode.value = null
+      }, 2000)
+    } catch (fallbackErr) {
+      console.error('Failed to copy code:', fallbackErr)
+    }
+    document.body.removeChild(textArea)
+  }
+}
+
 const activeCodes = ref([
   { code: 'COUNTTRANSCENDEDSTONES', reward: 'Freebies, must be level 10 and own the Transcended Stones', isNew: true },
   { code: '1BILLION', reward: 'Freebies, must be level 10 ', isNew: false },
   { code: 'EXPANSION', reward: 'Freebies, must be level 10', isNew: false },
   { code: 'PURPLEMOON', reward: 'Freebies', isNew: false },
-  { code: 'TRAVEL', reward: '1x Luck || Potion', isNew: false },
-  { code: 'MEGA', reward: '2x Luck || Potions', isNew: false },
-  { code: 'ARMOR', reward: '1x Luck || Potion', isNew: false },
-  { code: 'SHARKSSS', reward: '2x Luck || Potions', isNew: false },
-  { code: 'MUTATE', reward: '1x Mutation Potion', isNew: false },
-  { code: '100M', reward: '1x Luck || Potion', isNew: false },
-  { code: 'SHARKSSS', reward: '1x Luck || Potion', isNew: false },
 ])
 
 const expiredCodes = ref([
+  'MEGA',
   'LUCKYTOTEM',
   'CRYSTALS',
   'TOTEMREFUND',
@@ -174,13 +239,15 @@ const expiredCodes = ref([
 
 .codes-section,
 .redeem-section,
-.expired-section {
+.expired-section,
+.faq-section {
   margin-bottom: 50px;
 }
 
 .codes-section h2,
 .redeem-section h2,
-.expired-section h2 {
+.expired-section h2,
+.faq-section h2 {
   font-size: 32px;
   color: #e3f2ff;
   margin-bottom: 16px;
@@ -278,6 +345,51 @@ const expiredCodes = ref([
   font-size: 15px;
 }
 
+.copy-header {
+  width: 100px;
+  text-align: right;
+}
+
+.copy-cell {
+  text-align: right;
+  padding: 16px 20px;
+}
+
+.copy-button {
+  padding: 6px 16px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.copy-button:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #93c5fd;
+  transform: scale(1.05);
+}
+
+.copy-button:active {
+  transform: scale(0.95);
+}
+
+.copy-button.copied {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+}
+
+.copy-button.copied:hover {
+  background: rgba(34, 197, 94, 0.3);
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
 .redeem-section p {
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.7;
@@ -367,6 +479,48 @@ const expiredCodes = ref([
     border-bottom-color: #93c5fd;
   }
 
+.faq-section {
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.faq-item {
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.faq-item p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 15px;
+}
+
 @media (max-width: 768px) {
   .page-header h1 {
     font-size: 32px;
@@ -374,8 +528,21 @@ const expiredCodes = ref([
 
   .codes-section h2,
   .redeem-section h2,
-  .expired-section h2 {
+  .expired-section h2,
+  .faq-section h2 {
     font-size: 24px;
+  }
+
+  .faq-item {
+    padding: 20px;
+  }
+
+  .faq-item h3 {
+    font-size: 18px;
+  }
+
+  .faq-item p {
+    font-size: 14px;
   }
 
   .codes-table {
