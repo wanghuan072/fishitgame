@@ -1,5 +1,5 @@
 <template>
-  <section class="list-page">
+  <section class="page-container">
     <div class="container">
       <header class="page-hero">
         <div class="hero-copy">
@@ -20,10 +20,10 @@
             <span>Boats</span>
           </div>
         </div>
-        <figure class="hero-image">
+        <div class="hero-image">
           <img src="/images/wiki/boats/boats-img01.webp" alt="Fish It Boats menu" />
-          <figcaption>The Boats menu shows acceleration, passenger slots, and speed before you invest resources.</figcaption>
-        </figure>
+          <p>The Boats menu shows acceleration, passenger slots, and speed before you invest resources.</p>
+        </div>
       </header>
 
       <section class="info-grid">
@@ -390,23 +390,18 @@ const onItemClick = (item) => {
 </script>
 
 <style scoped>
-.list-page {
-  padding: 90px 0;
-}
-
 .page-hero {
   border: 1px solid rgba(59, 130, 246, 0.25);
   border-radius: 24px;
   background: radial-gradient(circle at top, rgba(59, 130, 246, 0.25), rgba(10, 15, 25, 0.6));
-  padding: 36px;
+  padding: 30px;
   margin-bottom: 40px;
   display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .hero-copy {
-  flex: 1 1 360px;
+  width: 60%;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -421,7 +416,6 @@ const onItemClick = (item) => {
 
 .hero-copy h1 {
   font-size: 48px;
-  margin: 6px 0;
   background: linear-gradient(135deg, #e3f2ff, #93c5fd);
   -webkit-background-clip: text;
   background-clip: text;
@@ -453,7 +447,6 @@ const onItemClick = (item) => {
 }
 
 .hero-image {
-  flex: 1 1 360px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -483,7 +476,7 @@ const onItemClick = (item) => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
-  margin: 40px 0;
+  margin-bottom: 40px;
 }
 
 .info-entry {
@@ -701,11 +694,26 @@ const onItemClick = (item) => {
 
 @media (max-width: 768px) {
   .page-hero {
-    padding: 24px;
+    padding: 10px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .hero-copy{
+    width: 100%;
+    gap: 10px;
+  }
+  .hero-copy h1 {
+    font-size: 24px;
+    line-height: 1.2;
   }
 
-  .hero-copy h1 {
-    font-size: 36px;
+  .hero-kpi{
+    padding: 10px;
+  }
+
+  .hero-kpi strong{
+    font-size: 24px;
   }
 
   .table-section {
@@ -726,6 +734,19 @@ const onItemClick = (item) => {
   .section-count {
     font-size: 12px;
     padding: 3px 8px;
+  }
+
+  .info-grid{
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .info-entry{
+    padding: 10px;
+    gap: 10px;
+  }
+  .info-entry img{
+    min-height: 180px;
   }
 
   .boat-table {

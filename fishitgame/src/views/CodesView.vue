@@ -1,9 +1,9 @@
 <template>
-  <section class="codes-page">
+  <section class="page-container">
     <div class="container">
       <div class="page-header">
         <p class="page-badge">Codes</p>
-        <h1>Fish It! Codes (December 2025)</h1>
+        <h1 class="page-title">Fish It! Codes (December 2025)</h1>
         <p class="subtitle">
           In Fish It, players are able to redeem one-time use codes in order to obtain valuable items and various potions.
         </p>
@@ -176,41 +176,7 @@ const expiredCodes = ref([
 </script>
 
 <style scoped>
-.codes-page {
-  padding: 80px 0;
-}
 
-.page-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.page-badge {
-  display: inline-flex;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 0.3em;
-  font-size: 12px;
-  margin-bottom: 18px;
-}
-
-.page-header h1 {
-  font-size: 48px;
-  margin-bottom: 18px;
-  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.subtitle {
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 760px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
 
 .codes-content {
   max-width: 1000px;
@@ -227,7 +193,7 @@ const expiredCodes = ref([
 
 .intro-section p {
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.8;
+  line-height: 1.5;
   font-size: 16px;
   margin: 0;
 }
@@ -393,8 +359,8 @@ const expiredCodes = ref([
 .redeem-section p {
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.7;
-  margin-bottom: 20px;
   font-size: 16px;
+  padding: 10px;
 }
 
 .redeem-steps {
@@ -480,16 +446,13 @@ const expiredCodes = ref([
   }
 
 .faq-section {
-  margin-top: 60px;
-  padding: 40px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .faq-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
-  margin-top: 32px;
+  gap: 20px;
 }
 
 .faq-item {
@@ -522,19 +485,59 @@ const expiredCodes = ref([
 }
 
 @media (max-width: 768px) {
-  .page-header h1 {
-    font-size: 32px;
-  }
-
   .codes-section h2,
   .redeem-section h2,
   .expired-section h2,
   .faq-section h2 {
-    font-size: 24px;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .intro-section{
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .intro-section p{
+    font-size: 12px;
+  }
+
+  .section-note{
+    font-size: 12px;
+  }
+
+  .code-text{
+    font-size: 12px;
+  }
+
+  .codes-section,
+.redeem-section,
+.expired-section,
+.faq-section {
+  margin-bottom: 20px;
+}
+
+  .warning-note{
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+
+  .redeem-section p{
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .expired-section p{
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .expired-codes-list{
+    gap: 10px;
   }
 
   .faq-item {
-    padding: 20px;
+    padding: 10px;
   }
 
   .faq-item h3 {
@@ -551,7 +554,8 @@ const expiredCodes = ref([
 
   .codes-table th,
   .codes-table td {
-    padding: 12px 16px;
+    padding: 10px;
+    font-size: 12px;
   }
 
   .redeem-images {

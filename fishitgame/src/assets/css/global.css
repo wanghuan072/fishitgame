@@ -66,9 +66,91 @@ h1,h2,h3,h4,h5,h6,p,ul {
   box-sizing: border-box;
 }
 
+/* Page Container */
+.page-container {
+  padding: 80px 0;
+}
+
+.page-container-large {
+  padding: 90px 0;
+}
+
+/* Page Title */
+.page-title {
+  font-size: 48px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-title-large {
+  font-size: 54px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Page Badge */
+.page-badge {
+  display: inline-flex;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3em;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+/* Page Subtitle */
+.subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Page Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 10px;
+  }
+
+  .page-container{
+    padding: 20px 0;
+  }
+
+  .page-container-large{
+    padding: 20px 0;
+  }
+
+  .page-badge{
+    font-size: 10px;
+    padding: 4px 12px;
+    margin-bottom: 0;
+  }
+
+  .page-title {
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+
+  .page-header{
+    margin-bottom: 20px;
+  }
+
+  .page-title-large {
+    font-size: 24px;
+    margin-bottom: 10px;
   }
 }
 

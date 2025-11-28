@@ -65,7 +65,6 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 10px;
   text-decoration: none;
 }
 
@@ -85,7 +84,6 @@
 
 .footer-text {
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 16px;
 }
 
 .footer-brand {
@@ -138,7 +136,6 @@
 .footer-play-button {
   display: inline-flex;
   align-self: flex-start;
-  margin-top: 4px;
   padding: 10px 26px;
   border-radius: 999px;
   border: 1px solid rgba(59, 130, 246, 0.4);
@@ -176,17 +173,24 @@
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand{
+    width: 100%;
+  }
+
+  .link-column{
+    width: 40%;
   }
 
   .footer-logo {
     font-size: 20px;
-    margin-bottom: 10px;
   }
 
   .footer-text {
     font-size: 12px;
-    margin-bottom: 10px;
   }
 
   .link-column h2 {

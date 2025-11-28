@@ -1,8 +1,8 @@
 <template>
-  <section class="wiki-home">
+  <section class="page-container">
     <div class="container">
       <div class="page-header">
-        <h1>Fish It! Wiki</h1>
+        <h1 class="page-title">Fish It! Wiki</h1>
         <p class="subtitle">
           All equipment knowledge now lives in one unified hub. Boats, bobbers, fish, and rods each get their own format so future
           data drops slide in instantly.
@@ -26,7 +26,7 @@
             <div class="card-top">
               <div>
                 <p class="category-label">{{ category.label }}</p>
-                <h2>{{ category.title }}</h2>
+                <h3>{{ category.title }}</h3>
               </div>
               <span class="count">{{ category.count }} entries</span>
             </div>
@@ -125,41 +125,7 @@ const categories = [
 </script>
 
 <style scoped>
-.wiki-home {
-  padding: 80px 0;
-}
 
-.page-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.page-badge {
-  display: inline-flex;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 0.3em;
-  font-size: 12px;
-  margin-bottom: 18px;
-}
-
-.page-header h1 {
-  font-size: 48px;
-  margin-bottom: 18px;
-  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.subtitle {
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 760px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
 
 .section-heading {
   margin: 0;
@@ -275,19 +241,10 @@ const categories = [
   color: var(--accent);
 }
 
-@media (max-width: 768px) {
-  .page-header h1 {
-    font-size: 32px;
-  }
 
-  .card-content {
-    padding: 24px;
-  }
-}
 
 .about-section {
-  margin-top: 60px;
-  padding: 40px 0;
+  margin-top: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -297,9 +254,9 @@ const categories = [
 }
 
 .about-content h2 {
-  font-size: 32px;
+  font-size: 28px;
   color: #fff;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   background: linear-gradient(135deg, #e3f2ff, #93c5fd);
   -webkit-background-clip: text;
   background-clip: text;
@@ -308,9 +265,9 @@ const categories = [
 
 .about-content p {
   color: rgba(255, 255, 255, 0.75);
-  line-height: 1.8;
+  line-height: 1.5;
   margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .about-content p:last-child {
@@ -331,8 +288,7 @@ const categories = [
 }
 
 .faq-section {
-  margin-top: 60px;
-  padding: 40px 0;
+  margin-top: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -387,26 +343,48 @@ const categories = [
 }
 
 @media (max-width: 768px) {
+  .card-content {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .category-grid{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .about-section{
+    margin-top: 20px;
+  }
+
   .about-content h2,
   .faq-content h2 {
-    font-size: 24px;
+    font-size: 22px;
+    margin-bottom: 10px;
   }
 
   .about-content p {
-    font-size: 15px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .faq-section{
+    margin-top: 20px;
   }
 
   .faq-item {
-    padding: 20px;
+    padding: 15px;
   }
 
   .faq-item h3 {
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 10px;
   }
 
   .faq-item p {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
+
 </style>
 

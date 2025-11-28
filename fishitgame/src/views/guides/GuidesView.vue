@@ -1,9 +1,9 @@
 <template>
-  <section class="guides-page">
+  <section class="page-container">
     <div class="container">
       <div class="page-header">
         <p class="page-badge">Guides</p>
-        <h1>Fish It! Guides</h1>
+        <h1 class="page-title">Fish It! Guides</h1>
         <p class="subtitle">
           Curated workflows, Luck builds, and boat investment tips straight from the community—packaged in local data so everything
           stays available offline.
@@ -26,7 +26,7 @@
           </div>
           <div class="card-body">
             <p class="publish-date">{{ formatDate(guide.publishDate) }}</p>
-            <h2 class="guide-title">{{ guide.title }}</h2>
+            <h3 class="guide-title">{{ guide.title }}</h3>
             <p class="guide-description">{{ guide.description }}</p>
             <div class="tag-list" v-if="guide.tags?.length">
               <span v-for="tag in guide.tags" :key="tag" class="tag">#{{ tag }}</span>
@@ -57,41 +57,7 @@ const handleGuideClick = (guide) => {
 </script>
 
 <style scoped>
-.guides-page {
-  padding: 80px 0;
-}
 
-.page-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.page-badge {
-  display: inline-flex;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 0.3em;
-  font-size: 12px;
-  margin-bottom: 18px;
-}
-
-.page-header h1 {
-  font-size: 48px;
-  margin-bottom: 18px;
-  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.subtitle {
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 760px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
 
 .section-heading-wrapper {
   display: flex;
@@ -202,8 +168,13 @@ const handleGuideClick = (guide) => {
 
 
 @media (max-width: 768px) {
-  .page-header h1 {
-    font-size: 32px;
+  .guides-grid{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card-body{
+    padding: 10px;
   }
 }
 </style>

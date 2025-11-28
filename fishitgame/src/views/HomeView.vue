@@ -405,7 +405,7 @@
                 <div class="reviewer">
                   <span class="avatar">{{ review.avatar }}</span>
                   <div>
-                    <h4>{{ review.name }}</h4>
+                    <span>{{ review.name }}</span>
                     <p>{{ review.rating }}</p>
                   </div>
                 </div>
@@ -800,11 +800,11 @@ section {
 
 .systems-grid {
   display: grid;
-  gap: 24px;
+  gap: 20px;
 }
 
 .system-card {
-  padding: 28px;
+  padding: 20px;
   border-radius: 18px;
   border: 1px solid rgba(59, 130, 246, 0.25);
   background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
@@ -834,15 +834,15 @@ section {
 }
 
 .system-icon {
-  font-size: 32px;
-  margin-bottom: 16px;
+  font-size: 30px;
+  margin-bottom: 10px;
   display: block;
 }
 
 .system-card h4 {
   font-size: 20px;
   color: #d2e9ff;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-weight: 700;
 }
 
@@ -1571,7 +1571,7 @@ section {
   color: var(--accent);
 }
 
-.reviewer h4 {
+.reviewer span {
   color: #ffd8d8;
   margin-bottom: 5px;
 }

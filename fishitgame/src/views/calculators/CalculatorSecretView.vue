@@ -1,10 +1,10 @@
 <template>
-  <section class="calculator-page">
+  <section class="page-container-large">
     <div class="container">
       <header class="page-hero">
         <div>
           <p class="hero-eyebrow">Tools · Calculator</p>
-          <h1>Fish It Secret Fish Calculator</h1>
+          <h1 class="page-title-large">Fish It Secret Fish Calculator</h1>
           <p>
             Explore all Secret Fish in Fish It! Find detailed information about locations, catch rates, and strategies
             for catching these ultra-rare fish.
@@ -16,18 +16,7 @@
         <!-- Filter Section -->
         <div class="filter-section">
           <div class="filter-card">
-            <h2>Filter & Search</h2>
-
-            <div class="form-group">
-              <label for="search-input">Search Fish:</label>
-              <input
-                id="search-input"
-                v-model="searchQuery"
-                type="text"
-                placeholder="Search by name or location..."
-                class="search-input"
-              />
-            </div>
+            <h2>Filter</h2>
 
             <div class="form-group">
               <label>Filter by Location:</label>
@@ -117,7 +106,11 @@
       <!-- Why Use This Calculator Section -->
       <div class="intro-section">
         <div class="intro-content">
-          <h2>Why Use the Secret Fish Calculator?</h2>
+          <h2 class="section-title">Why Use the Secret Fish Calculator?</h2>
+          <p class="intro-description">
+            Every Secret fish hunt starts with solid intel. Use this calculator to review each rare catch, filter by
+            location, and jump into probability tools before you waste time casting in the wrong waters.
+          </p>
           <div class="intro-grid">
             <div class="intro-card">
               <div class="intro-icon">🔮</div>
@@ -145,7 +138,7 @@
 
       <!-- FAQ Section -->
       <div class="faq-section">
-        <h2>Common Questions</h2>
+        <h2 class="section-title">Common Questions</h2>
         <div class="faq-grid">
           <div class="faq-item">
             <h3>What are Secret fish?</h3>
@@ -191,7 +184,6 @@ import { useRouter } from 'vue-router'
 import fishData from '@/data/wiki/fish.js'
 
 const router = useRouter()
-const searchQuery = ref('')
 const selectedLocations = ref([])
 
 // Get all secret fish
@@ -224,16 +216,6 @@ const uniqueLocations = computed(() => {
 // Filter secret fish
 const filteredSecretFish = computed(() => {
   let filtered = secretFish.value
-
-  // Filter by search query
-  if (searchQuery.value) {
-    const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter((fish) => {
-      const name = fish.title?.toLowerCase() || ''
-      const location = fish.stats?.Location?.toLowerCase() || ''
-      return name.includes(query) || location.includes(query)
-    })
-  }
 
   // Filter by selected locations
   if (selectedLocations.value.length > 0) {
@@ -273,7 +255,6 @@ const toggleLocation = (location) => {
 
 // Clear all filters
 const clearFilters = () => {
-  searchQuery.value = ''
   selectedLocations.value = []
 }
 
@@ -284,10 +265,6 @@ const openRngCalculator = () => {
 </script>
 
 <style scoped>
-.calculator-page {
-  padding: 90px 0;
-}
-
 .page-hero {
   padding: 32px;
   border: 1px solid rgba(59, 130, 246, 0.25);
@@ -305,14 +282,6 @@ const openRngCalculator = () => {
   margin-bottom: 10px;
 }
 
-.page-hero h1 {
-  font-size: 54px;
-  margin: 10px 0 20px;
-  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 .page-hero p {
   max-width: 800px;
@@ -361,22 +330,6 @@ const openRngCalculator = () => {
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 8px;
   font-weight: 500;
-}
-
-.search-input {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  background: rgba(15, 25, 40, 0.8);
-  color: #fff;
-  font-size: 14px;
-  transition: border-color 0.3s;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: rgba(59, 130, 246, 0.6);
 }
 
 .location-filters {
@@ -623,12 +576,33 @@ const openRngCalculator = () => {
 }
 
 @media (max-width: 768px) {
-  .page-hero h1 {
-    font-size: 36px;
+  .page-hero {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .calculator-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .filter-card,
+  .results-card {
+    padding: 16px;
+  }
+
+  .filter-card h2,
+  .results-card h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
   }
 
   .fish-grid {
     grid-template-columns: 1fr;
+  }
+
+  .fish-card {
+    padding: 15px;
   }
 
   .location-filters {
@@ -639,10 +613,59 @@ const openRngCalculator = () => {
     width: 100%;
     text-align: center;
   }
+
+  .location-header h3 {
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .intro-description {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .intro-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .intro-card,
+  .faq-item {
+    padding: 10px;
+  }
+
+  .intro-icon {
+    font-size: 36px;
+  }
+
+  .intro-card h3,
+  .faq-item h3 {
+    font-size: 16px;
+  }
+
+  .intro-card p,
+  .faq-item p {
+    font-size: 12px;
+  }
+
+  .empty-state {
+    padding: 40px 15px;
+  }
+
+  .empty-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
 }
 
 .intro-section {
-  margin-bottom: 60px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .intro-content {
@@ -650,15 +673,24 @@ const openRngCalculator = () => {
   margin: 0 auto;
 }
 
-.intro-content h2 {
+.section-title {
   font-size: 36px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   color: #fff;
   text-align: center;
   background: linear-gradient(135deg, #e3f2ff, #93c5fd);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.intro-description {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 16px;
 }
 
 .intro-grid {
@@ -668,11 +700,12 @@ const openRngCalculator = () => {
 }
 
 .intro-card {
-  padding: 28px;
+  padding: 24px;
   border-radius: 18px;
   border: 1px solid rgba(59, 130, 246, 0.25);
   background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .intro-card:hover {
@@ -707,20 +740,8 @@ const openRngCalculator = () => {
 }
 
 .faq-section {
-  margin-top: 60px;
-  padding: 40px 0;
+  margin-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.faq-section h2 {
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: #fff;
-  text-align: center;
-  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .faq-grid {
@@ -788,14 +809,4 @@ const openRngCalculator = () => {
   }
 }
 
-@media (max-width: 768px) {
-  .intro-content h2,
-  .faq-section h2 {
-    font-size: 28px;
-  }
-
-  .intro-grid {
-    grid-template-columns: 1fr;
-  }
-}
 </style>

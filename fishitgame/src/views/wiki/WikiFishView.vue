@@ -1,5 +1,5 @@
 <template>
-  <section class="list-page">
+  <section class="page-container">
     <div class="container">
       <header class="page-hero">
         <div class="hero-copy">
@@ -124,23 +124,18 @@ const fishSections = computed(() => {
 </script>
 
 <style scoped>
-.list-page {
-  padding: 90px 0;
-}
-
 .page-hero {
   border: 1px solid rgba(59, 130, 246, 0.25);
   border-radius: 24px;
   background: radial-gradient(circle at top, rgba(59, 130, 246, 0.25), rgba(10, 15, 25, 0.6));
-  padding: 36px;
+  padding: 30px;
   margin-bottom: 40px;
   display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .hero-copy {
-  flex: 1 1 360px;
+  width: 60%;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -155,7 +150,6 @@ const fishSections = computed(() => {
 
 .hero-copy h1 {
   font-size: 48px;
-  margin: 8px 0;
   background: linear-gradient(135deg, #e3f2ff, #93c5fd);
   -webkit-background-clip: text;
   background-clip: text;
@@ -192,7 +186,6 @@ const fishSections = computed(() => {
 }
 
 .hero-image {
-  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -205,10 +198,12 @@ const fishSections = computed(() => {
   object-fit: cover;
 }
 
+.hero-image p,
 .hero-image figcaption {
   color: rgba(255, 255, 255, 0.75);
   font-size: 14px;
   line-height: 1.4;
+  margin: 0;
 }
 
 .table-section {
@@ -298,11 +293,68 @@ const fishSections = computed(() => {
 
 @media (max-width: 768px) {
   .page-hero {
-    padding: 24px;
+    padding: 10px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .hero-copy {
+    width: 100%;
+    gap: 10px;
   }
 
   .hero-copy h1 {
-    font-size: 36px;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .hero-kpi {
+    padding: 10px;
+  }
+
+  .hero-kpi strong {
+    font-size: 24px;
+  }
+
+  .table-section {
+    margin-bottom: 20px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .section-count {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  .fish-table {
+    border-radius: 14px;
+  }
+
+  .fish-table th,
+  .fish-table td {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .fish-image-cell img {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+  }
+
+  .fish-name-cell {
+    font-size: 14px;
   }
 }
 </style>

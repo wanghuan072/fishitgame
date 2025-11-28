@@ -1,10 +1,10 @@
 <template>
-  <section class="calculator-page">
+  <section class="page-container-large">
     <div class="container">
       <header class="page-hero">
         <div>
           <p class="hero-eyebrow">Tools · Calculator</p>
-          <h1>Fish It Luck Calculator</h1>
+          <h1 class="page-title-large">Fish It Luck Calculator</h1>
           <p>
             Calculate your total luck percentage and optimize your gear setup for maximum catch rates. Select your Rod,
             Bobber, and add any additional luck bonuses from potions or utility items.
@@ -195,7 +195,7 @@
       <!-- Why Use This Calculator Section -->
       <div class="intro-section">
         <div class="intro-content">
-          <h2>Why Use the Luck Calculator?</h2>
+          <h2 class="section-title">Why Use the Luck Calculator?</h2>
           <div class="intro-grid">
             <div class="intro-card">
               <div class="intro-icon">🎯</div>
@@ -223,7 +223,7 @@
 
       <!-- FAQ Section -->
       <div class="faq-section">
-        <h2>Common Questions</h2>
+        <h2 class="section-title">Common Questions</h2>
         <div class="faq-grid">
           <div class="faq-item">
             <h3>How does the luck calculator work?</h3>
@@ -460,10 +460,6 @@ const calculateLuck = () => {
 </script>
 
 <style scoped>
-.calculator-page {
-  padding: 90px 0;
-}
-
 .page-hero {
   padding: 32px;
   border: 1px solid rgba(59, 130, 246, 0.25);
@@ -481,14 +477,6 @@ const calculateLuck = () => {
   margin-bottom: 10px;
 }
 
-.page-hero h1 {
-  font-size: 54px;
-  margin: 10px 0 20px;
-  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 .page-hero p {
   max-width: 800px;
@@ -1016,7 +1004,8 @@ const calculateLuck = () => {
 }
 
 .intro-section {
-  margin-bottom: 60px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .intro-content {
@@ -1024,15 +1013,24 @@ const calculateLuck = () => {
   margin: 0 auto;
 }
 
-.intro-content h2 {
+.section-title {
   font-size: 36px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   color: #fff;
   text-align: center;
   background: linear-gradient(135deg, #e3f2ff, #93c5fd);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.intro-description {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 16px;
 }
 
 .intro-grid {
@@ -1042,11 +1040,12 @@ const calculateLuck = () => {
 }
 
 .intro-card {
-  padding: 28px;
+  padding: 24px;
   border-radius: 18px;
   border: 1px solid rgba(59, 130, 246, 0.25);
   background: linear-gradient(160deg, rgba(20, 30, 50, 0.8), rgba(10, 15, 25, 0.7));
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .intro-card:hover {
@@ -1081,20 +1080,8 @@ const calculateLuck = () => {
 }
 
 .faq-section {
-  margin-top: 60px;
-  padding: 40px 0;
+  margin-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.faq-section h2 {
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: #fff;
-  text-align: center;
-  background: linear-gradient(135deg, #e3f2ff, #93c5fd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .faq-grid {
@@ -1160,28 +1147,138 @@ const calculateLuck = () => {
   .intro-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .faq-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
-@media (max-width: 968px) {
-  .page-hero h1 {
-    font-size: 36px;
+@media (max-width: 768px) {
+  .page-hero{
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .intro-description {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .intro-card {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .intro-card h3 {
+    font-size: 16px;
+  }
+
+  .intro-card p {
+    font-size: 12px;
+  }
+
+  .faq-grid {
+    gap: 10px;
+  }
+
+  .faq-item {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .faq-item h3 {
+    font-size: 16px;
+  }
+
+  .faq-item p {
+    font-size: 12px;
   }
 
   .luck-value {
     font-size: 36px;
   }
 
-  .intro-content h2,
-  .faq-section h2 {
-    font-size: 28px;
+  .input-card,
+  .results-card {
+    padding: 15px;
   }
 
-  .intro-grid {
-    grid-template-columns: 1fr;
+  .input-card h2,
+  .results-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .custom-select,
+  .number-input {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .calculate-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .total-luck-display {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .luck-breakdown {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .luck-breakdown h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .breakdown-item {
+    padding: 8px 0;
+  }
+
+  .breakdown-label,
+  .breakdown-value {
+    font-size: 12px;
+  }
+
+  .luck-info {
+    padding: 10px;
+  }
+
+  .luck-info p {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .empty-state {
+    padding: 40px 15px;
+  }
+
+  .empty-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .empty-state p {
+    font-size: 12px;
   }
 }
 </style>
