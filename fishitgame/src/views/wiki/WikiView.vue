@@ -4,7 +4,7 @@
       <div class="page-header">
         <h1 class="page-title">Fish It! Wiki</h1>
         <p class="subtitle">
-          All equipment knowledge now lives in one unified hub. Boats, bobbers, fish, and rods each get their own format so future
+          All equipment knowledge now lives in one unified hub. Boats, baits, fish, and rods each get their own format so future
           data drops slide in instantly.
         </p>
       </div>

@@ -3,18 +3,18 @@
     <div class="container">
       <header class="page-hero">
         <div class="hero-copy">
-          <p class="hero-eyebrow">Wiki · Bobbers</p>
-          <h1>Bobbers</h1>
+          <p class="hero-eyebrow">Wiki · Baits</p>
+          <h1>Baits</h1>
           <p>
             In Fish It! players can increase their Luck and other stats like Bonus XP, Mutation, and Shiny Chance by buying
-            Bobbers/Bait. Bobbers can be bought at the Fisherman Island shop (Seth NPC) or the Traveling Merchant. Some rare floats
+            Bait. Bobbers can be bought at the Fisherman Island shop (Seth NPC) or the Traveling Merchant. Some rare floats
             arrive via Gamepass rewards or “follow + like” bonuses.
           </p>
           <p class="hero-note">Some fish are harder to catch without high-stat bobbers. Use the Catch RNG Calculator to plan drops.</p>
           <div class="hero-kpi">
             <p>Entries Logged</p>
             <strong>{{ bobbers.length }}</strong>
-            <span>Bobbers</span>
+            <span>Baits</span>
           </div>
         </div>
       </header>
@@ -22,7 +22,7 @@
       <!-- Purchasable Bobbers Table -->
       <div v-if="purchasableBobbers.length > 0" class="table-section">
         <div class="section-header">
-          <h2 class="section-title">Purchasable Bobbers</h2>
+          <h2 class="section-title">Purchasable Baits</h2>
           <span class="section-count">{{ purchasableBobbers.length }} items</span>
         </div>
         <div class="bobber-table">
@@ -30,7 +30,7 @@
             <thead>
               <tr>
                 <th class="preview-col">Preview</th>
-                <th class="name-col">Bobber Name</th>
+                <th class="name-col">Bait Name</th>
                 <th class="desc-col">Description</th>
                 <th class="stats-col">Stats</th>
                 <th class="price-col">Price</th>
@@ -89,7 +89,7 @@
       <!-- Gift Bobbers Table -->
       <div v-if="giftBobbers.length > 0" class="table-section">
         <div class="section-header">
-          <h2 class="section-title">Gift Bobbers</h2>
+          <h2 class="section-title">Gift Baits</h2>
           <span class="section-count">{{ giftBobbers.length }} items</span>
         </div>
         <div class="bobber-table">
@@ -97,7 +97,7 @@
             <thead>
               <tr>
                 <th class="preview-col">Preview</th>
-                <th class="name-col">Bobber Name</th>
+                <th class="name-col">Bait Name</th>
                 <th class="desc-col">Description</th>
                 <th class="stats-col">Stats</th>
                 <th class="price-col">Price</th>
@@ -156,7 +156,7 @@
       <!-- Gamepass Bobbers Table -->
       <div v-if="gamepassBobbers.length > 0" class="table-section">
         <div class="section-header">
-          <h2 class="section-title">Gamepass Bobbers</h2>
+          <h2 class="section-title">Gamepass Baits</h2>
           <span class="section-count">{{ gamepassBobbers.length }} items</span>
         </div>
         <div class="bobber-table">
@@ -164,7 +164,7 @@
             <thead>
               <tr>
                 <th class="preview-col">Preview</th>
-                <th class="name-col">Bobber Name</th>
+                <th class="name-col">Bait Name</th>
                 <th class="desc-col">Description</th>
                 <th class="stats-col">Stats</th>
                 <th class="price-col">Price</th>
