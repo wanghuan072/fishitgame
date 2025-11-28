@@ -513,6 +513,7 @@ export const guides = [
         publishDate: "2025-11-27",
         imageUrl: "/images/guide/guide06.webp",
         imageAlt: "Professional screenshot of Fish It Best Location Enchant Guide: Where to Farm Enchant Stones Fast?",
+        isHome: true,
         seo: {
             title: "Fish It Best Location Enchant Guide: Get Infinite Enchant Stones",
             description: "We tested every island to find the Fish It best location enchant farming spot. Stop wasting time in the Esoteric Depths—find out why the Volcano is the #1 spot for Enchant Stones.",
