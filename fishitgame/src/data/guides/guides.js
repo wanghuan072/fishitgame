@@ -408,7 +408,7 @@ export const guides = [
 
 <p style="text-align: center;"><strong>Want to calculate your current Total Luck?</strong></p>
 <p style="text-align: center;">
-  <a href="/calculator/luck" rel="noopener noreferrer" target="_blank">Click here to use our [Luck Calculator] to check your stats!</a>
+  <a href="/calculator/fish-it-luck-calculator" rel="noopener noreferrer" target="_blank">Click here to use our [Luck Calculator] to check your stats!</a>
 </p>
 
     `,
@@ -428,7 +428,7 @@ export const guides = [
             keywords: "Fish It best rod, Fish It rod locations, Fish It Angler Rod, Fish It Ghostfinn Rod, Fish It Ares Rod location, Roblox Fish It guide, Fish It progression",
         },
         isHome: true,
-        addressBar: "ultimate-progression-locations",
+        addressBar: "/ultimate-progression-locations",
         detailsHtml: `
     <p style="margin: 1em 0px;">Welcome to the ultimate progression walkthrough for Roblox's <em>Fish It</em>. With so many options available at Joe's Rods and hidden across the map, it can be confusing to know which gear to buy and which to skip. Whether you are a beginner or a pro grinder, finding the <strong>Fish It best rod</strong> is essential for catching those elusive Mythical and Secret fish.</p>
 <p style="margin: 1em 0px;">In this guide, we will break down the most efficient path to power, reveal secret locations for high-tier gear, and settle the debate on what truly is the <strong>Fish It best rod</strong> in the current meta.</p>

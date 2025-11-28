@@ -104,24 +104,24 @@
               <span class="input-hint">How many casts you typically complete in one hour</span>
             </div>
 
-            <button class="calculate-button" @click="calculateResults">Calculate Catch Odds</button>
           </div>
         </div>
 
         <!-- Results Section -->
-        <div class="results-section" v-if="showResults && baseDropRate > 0">
+        <div class="results-section">
           <div class="results-card">
-            <div class="success-banner">
-              <p>Analysis complete! Check out the results below.</p>
-            </div>
-
             <h2>Catch Probability Analysis</h2>
-            <p class="analysis-description">
-              The calculator uses statistical models to estimate catch probability. Results show enhanced odds after
-              applying your luck multiplier and confidence intervals for different probability levels.
-            </p>
+            <div v-if="baseDropRate > 0 && castingRate > 0" class="value-results">
+              <div class="success-banner">
+                <p>Analysis complete! Check out the results below.</p>
+              </div>
 
-            <div class="enhanced-odds">
+              <p class="analysis-description">
+                The calculator uses statistical models to estimate catch probability. Results show enhanced odds after
+                applying your luck multiplier and confidence intervals for different probability levels.
+              </p>
+
+              <div class="enhanced-odds">
               <h3>Enhanced Odds</h3>
               <div class="odds-display">
                 <span class="odds-value">{{ formatEnhancedRate(enhancedDropRate) }}</span>
@@ -155,10 +155,16 @@
               </div>
             </div>
 
-            <p class="disclaimer">
-              These projections are based on statistical models and community research. Actual results may vary due to
-              RNG factors.
-            </p>
+              <p class="disclaimer">
+                These projections are based on statistical models and community research. Actual results may vary due to
+                RNG factors.
+              </p>
+            </div>
+
+            <div v-else class="empty-state">
+              <div class="empty-icon">📊</div>
+              <p>Enter your fish selection and settings to see catch probability analysis.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -250,7 +256,6 @@ const inputMode = ref('fish')
 const manualCatchRate = ref('')
 const luckMultiplier = ref(0)
 const castingRate = ref(600)
-const showResults = ref(false)
 const isSelectOpen = ref(false)
 
 // Group secret fish by location
@@ -362,12 +367,6 @@ const toggleSelect = () => {
 const selectFish = (fish) => {
   selectedFish.value = fish
   isSelectOpen.value = false
-}
-
-const calculateResults = () => {
-  if (baseDropRate.value > 0 && castingRate.value > 0) {
-    showResults.value = true
-  }
 }
 
 // Close select when clicking outside
@@ -639,6 +638,36 @@ const formatCasts = (casts) => {
   margin-top: 24px;
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.value-results {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty-state p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
 }
 
 .number-input {
