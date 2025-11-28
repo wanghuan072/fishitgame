@@ -37,7 +37,12 @@ const categoryKey = computed(() => {
   const category = route.params.category
   // 从 fish-it-boats 等格式中提取 boats 等原始 key
   if (category && category.startsWith('fish-it-')) {
-    return category.replace('fish-it-', '')
+    const extractedKey = category.replace('fish-it-', '')
+    // 映射 baits 到 bobbers（数据文件中的 key）
+    if (extractedKey === 'baits') {
+      return 'bobbers'
+    }
+    return extractedKey
   }
   return category
 })

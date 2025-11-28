@@ -15,7 +15,7 @@ export const wikiCategories = [
     key: 'bobbers',
     title: 'Bobbers / Floats',
     description: 'Luck, Mutation, and Shiny bonuses.',
-    to: '/wiki/fish-it-bobbers',
+    to: '/wiki/fish-it-baits',
     count: bobbers.length,
   },
   {

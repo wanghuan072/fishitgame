@@ -37,7 +37,7 @@
     },
     {
       "source": "/fish-it-wiki/bobbers",
-      "destination": "/wiki/fish-it-bobbers",
+      "destination": "/wiki/fish-it-baits",
       "permanent": true
     },
     {
@@ -57,7 +57,7 @@
     },
     {
       "source": "/fish-it-wiki/bobbers/:slug*",
-      "destination": "/wiki/fish-it-bobbers/:slug*",
+      "destination": "/wiki/fish-it-baits/:slug*",
       "permanent": true
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "source": "/wiki/bobbers",
-      "destination": "/wiki/fish-it-bobbers",
+      "destination": "/wiki/fish-it-baits",
       "permanent": true
     },
     {
@@ -97,7 +97,17 @@
     },
     {
       "source": "/wiki/bobbers/:slug*",
-      "destination": "/wiki/fish-it-bobbers/:slug*",
+      "destination": "/wiki/fish-it-baits/:slug*",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/fish-it-bobbers",
+      "destination": "/wiki/fish-it-baits",
+      "permanent": true
+    },
+    {
+      "source": "/wiki/fish-it-bobbers/:slug*",
+      "destination": "/wiki/fish-it-baits/:slug*",
       "permanent": true
     },
     {

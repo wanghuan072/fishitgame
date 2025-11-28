@@ -90,7 +90,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/wiki/fish-it-bobbers',
+      path: '/wiki/fish-it-baits',
       name: 'wiki-bobbers',
       component: WikiBobbersView,
       meta: {
@@ -287,7 +287,7 @@ const router = createRouter({
     },
     {
       path: '/fish-it-wiki/bobbers',
-      redirect: '/wiki/fish-it-bobbers'
+      redirect: '/wiki/fish-it-baits'
     },
     {
       path: '/fish-it-wiki/fish',
@@ -303,7 +303,7 @@ const router = createRouter({
     },
     {
       path: '/fish-it-wiki/bobbers/:slug',
-      redirect: (to) => `/wiki/fish-it-bobbers/${to.params.slug}`
+      redirect: (to) => `/wiki/fish-it-baits/${to.params.slug}`
     },
     {
       path: '/fish-it-wiki/fish/:slug',
@@ -319,7 +319,7 @@ const router = createRouter({
     },
     {
       path: '/wiki/bobbers',
-      redirect: '/wiki/fish-it-bobbers'
+      redirect: '/wiki/fish-it-baits'
     },
     {
       path: '/wiki/fish',
@@ -335,7 +335,16 @@ const router = createRouter({
     },
     {
       path: '/wiki/bobbers/:slug',
-      redirect: (to) => `/wiki/fish-it-bobbers/${to.params.slug}`
+      redirect: (to) => `/wiki/fish-it-baits/${to.params.slug}`
+    },
+    // 旧路径重定向 - Bobbers 到 Baits
+    {
+      path: '/wiki/fish-it-bobbers',
+      redirect: '/wiki/fish-it-baits'
+    },
+    {
+      path: '/wiki/fish-it-bobbers/:slug',
+      redirect: (to) => `/wiki/fish-it-baits/${to.params.slug}`
     },
     {
       path: '/wiki/fish/:slug',

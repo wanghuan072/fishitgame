@@ -257,7 +257,7 @@
                   </div>
                   <router-link
                     v-if="bait.showDetail"
-                    :to="`/wiki/fish-it-bobbers${bait.addressBar}`"
+                    :to="`/wiki/fish-it-baits${bait.addressBar}`"
                     class="bait-link"
                   >
                     View details →
@@ -266,7 +266,7 @@
               </article>
             </div>
             <div class="section-actions">
-              <router-link to="/wiki/fish-it-bobbers" class="btn-hero btn-secondary">Explore Bobber data</router-link>
+              <router-link to="/wiki/fish-it-baits" class="btn-hero btn-secondary">Explore Bobber data</router-link>
             </div>
           </div>
         </div>

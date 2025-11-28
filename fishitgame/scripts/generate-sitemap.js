@@ -16,7 +16,7 @@ const baseRoutes = [
   { path: '/guides', name: 'guides', priority: 0.9, changefreq: 'weekly' },
   { path: '/wiki', name: 'wiki', priority: 0.8, changefreq: 'weekly' },
   { path: '/wiki/fish-it-boats', name: 'wiki-boats', priority: 0.7, changefreq: 'weekly' },
-  { path: '/wiki/fish-it-bobbers', name: 'wiki-bobbers', priority: 0.7, changefreq: 'weekly' },
+  { path: '/wiki/fish-it-baits', name: 'wiki-bobbers', priority: 0.7, changefreq: 'weekly' },
   { path: '/wiki/fish-it-fish', name: 'wiki-fish', priority: 0.7, changefreq: 'weekly' },
   { path: '/wiki/fish-it-rods', name: 'wiki-rods', priority: 0.7, changefreq: 'weekly' },
   { path: '/calculator', name: 'calculator', priority: 0.8, changefreq: 'monthly' },
@@ -102,14 +102,22 @@ async function generateSitemap(data) {
 
   // 为 wiki 生成URL
   const wikiCategories = ['boats', 'bobbers', 'fish', 'rods']
+  // 类别名称映射：数据文件中的类别 -> URL 路径中的类别
+  const categoryPathMap = {
+    'boats': 'boats',
+    'bobbers': 'baits',
+    'fish': 'fish',
+    'rods': 'rods'
+  }
   
   for (const category of wikiCategories) {
     const items = data.wiki[category] || []
+    const pathCategory = categoryPathMap[category] || category
     items
       .filter(item => item && item.showDetail !== false && item.addressBar)
       .forEach(item => {
         const cleanAddressBar = item.addressBar.replace(/^\//, '').replace(/\/$/, '')
-        const itemPath = `/wiki/fish-it-${category}/${cleanAddressBar}`
+        const itemPath = `/wiki/fish-it-${pathCategory}/${cleanAddressBar}`
         sitemapXml += `\n${generateUrlXml(itemPath, item.publishDate || lastmod, 0.6, 'monthly')}`
       })
   }
