@@ -92,7 +92,7 @@
                           @click="selectMutation(index, mutation)"
                         >
                           {{ mutation.name }}
-                          <span class="option-meta">×{{ mutation.multiplier }}</span>
+                          <!-- <span class="option-meta">×{{ mutation.multiplier }}</span> -->
                         </div>
                       </div>
                     </div>
