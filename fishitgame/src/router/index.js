@@ -23,6 +23,9 @@ import CalculatorSecretView from '@/views/calculators/CalculatorSecretView.vue'
 // Codes
 import CodesView from '@/views/CodesView.vue'
 
+// Search
+import SearchView from '@/views/SearchView.vue'
+
 // Legal
 import AboutView from '@/views/legal/AboutView.vue'
 import ContactView from '@/views/legal/ContactView.vue'
@@ -199,6 +202,18 @@ const router = createRouter({
           title: 'Fish It! Codes, Active List, Rewards | fishitgame.com',
           description: 'Get the latest list of working Fish It! Codes here. We update daily with new codes for free in-game rewards. Find all active gift codes quickly and easily.',
           keywords: 'Fish It! codes, Fish It! working codes, Fish It! active codes, Fish It! redeem codes, Fish It! free rewards, Fish It! gift codes, fishitgame'
+        }
+      }
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: SearchView,
+      meta: {
+        seo: {
+          title: 'Search - Fish It! Guides, Wiki & More | fishitgame.com',
+          description: 'Search through all Fish It! guides, wiki items, boats, baits, fish, and rods. Find exactly what you need quickly.',
+          keywords: 'Fish It! search, search guides, search wiki, Fish It! find, fishitgame'
         }
       }
     },

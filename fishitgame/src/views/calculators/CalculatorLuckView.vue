@@ -277,7 +277,7 @@ const showResults = ref(false)
 let additionalLuckIdCounter = 0
 
 // Fixed luck source options
-const luckSourceOptions = ['Friend Luck', 'Weather Luck', 'Potion Luck', 'Event Luck']
+const luckSourceOptions = ['Friend Luck', 'Weather Luck', 'Potion Luck', 'Event Luck', 'weather']
 
 // Parse luck percentage from string (e.g., "50%" -> 50)
 const parseLuck = (luckString) => {

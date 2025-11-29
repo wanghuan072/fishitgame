@@ -4,7 +4,7 @@
       <header class="page-hero">
         <div>
           <p class="hero-eyebrow">Tools · Calculator</p>
-          <h1 class="page-title-large">Fish It Secret Fish Calculator</h1>
+          <h1 class="page-title-large">Fish It Secret Calculator</h1>
           <p>
             Explore all Secret Fish in Fish It! Find detailed information about locations, catch rates, and strategies
             for catching these ultra-rare fish.

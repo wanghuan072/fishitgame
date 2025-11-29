@@ -4,7 +4,7 @@
       <header class="page-hero">
         <div>
           <p class="hero-eyebrow">Tools · Calculator</p>
-          <h1 class="page-title-large">Fish It Catch RNG Calculator</h1>
+          <h1 class="page-title-large">fish it RNG calculator</h1>
           <p>
             Calculate the expected number of attempts and time needed to catch your target fish based on your equipment
             setup. Enter your Rod, Bobber, Utility, and target fish to get accurate estimates.

@@ -186,7 +186,7 @@ const router = useRouter();
 const calculatorsList = ref([
   {
     id: 1,
-    title: "Fish It Rng Calculator",
+    title: "Fish It RNG Calculator",
     description:
       "Calculate the expected number of attempts and time needed to catch your target fish based on your equipment setup.",
     slug: "fish-it-rng-calculator",
@@ -207,7 +207,7 @@ const calculatorsList = ref([
   },
   {
     id: 4,
-    title: "Fish It  Secret Fish Calculator",
+    title: "Fish It Secret Calculator",
     description:
       "Specialized calculator for Secret fish catch rates and optimal strategies for rare catches.",
     slug: "fish-it-secret-calculator",

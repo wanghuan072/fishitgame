@@ -135,7 +135,7 @@ const fishSections = computed(() => {
 }
 
 .hero-copy {
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 16px;

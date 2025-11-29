@@ -11,6 +11,23 @@
           <span class="hamburger-line" :class="{ active: isMenuOpen }"></span>
           <span class="hamburger-line" :class="{ active: isMenuOpen }"></span>
         </button>
+        <div class="search-wrapper">
+          <form @submit.prevent="handleSearch" class="search-form">
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Search guides, wiki items..."
+              class="search-input"
+              @focus="closeMenu"
+            />
+            <button type="submit" class="search-button" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19 19L14.65 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+        </div>
         <div class="menu-overlay" :class="{ open: isMenuOpen }" @click="closeMenu"></div>
         <nav class="nav-links" :class="{ open: isMenuOpen }">
           <router-link to="/" @click="closeMenu">Home</router-link>
@@ -26,8 +43,11 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const isMenuOpen = ref(false)
+const searchQuery = ref('')
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
@@ -35,6 +55,17 @@ const toggleMenu = () => {
 
 const closeMenu = () => {
   isMenuOpen.value = false
+}
+
+const handleSearch = () => {
+  if (searchQuery.value.trim()) {
+    router.push({
+      path: '/search',
+      query: { q: searchQuery.value.trim() }
+    })
+    searchQuery.value = ''
+    closeMenu()
+  }
 }
 </script>
 
@@ -55,6 +86,60 @@ const closeMenu = () => {
   gap: 24px;
   padding: 18px 0;
   position: relative;
+}
+
+.search-wrapper {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 45px 10px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.search-input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+}
+
+.search-button {
+  position: absolute;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  border-radius: 50%;
+}
+
+.search-button:hover {
+  color: var(--accent);
 }
 
 .logo {
@@ -142,6 +227,10 @@ const closeMenu = () => {
     gap: 12px;
     font-size: 0.9rem;
   }
+
+  .search-wrapper {
+    max-width: 300px;
+  }
 }
 
 .menu-overlay {
@@ -150,6 +239,10 @@ const closeMenu = () => {
 
 /* Mobile - 768px */
 @media (max-width: 768px) {
+  .search-wrapper {
+    display: none;
+  }
+
   .menu-toggle {
     display: flex;
   }
